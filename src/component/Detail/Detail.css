@@ -1,0 +1,34 @@
+.aon-destination-detail-wrap {
+    display: flex;
+    justify-content: center; /* Memposisikan konten secara horizontal di tengah */
+    align-items: center; /* Memposisikan konten secara vertikal di tengah */
+    height: 100vh; /* Tinggi sesuai dengan tinggi layar */
+  }
+  
+  .aon-destination-detail-content {
+    text-align: center; /* Posisikan konten teks di tengah */
+  }
+  
+  .overview-section {
+    margin-top: 50px; /* Atur jarak atas */
+  }
+  
+  .title {
+    margin-top: 10px; /* Atur jarak atas */
+  }
+  
+  /* Anda juga dapat menyesuaikan gaya tampilan sesuai kebutuhan Anda */
+  .row {
+    display: flex;
+    flex-wrap: wrap; /* Memastikan item akan pindah ke baris baru jika ruang tidak cukup */
+    margin-left: -15px; /* Mengkompensasi margin kiri untuk elemen pertama dalam baris */
+    margin-right: -15px; /* Mengkompensasi margin kanan untuk elemen terakhir dalam baris */
+  }
+  
+  /* Style tambahan jika diperlukan */
+  .row > * {
+    flex: 1 0 0; /* Elemen dalam baris akan menempati ruang yang tersedia secara merata */
+    margin: 0 15px; /* Menambahkan margin kiri dan kanan antara elemen dalam baris */
+    box-sizing: border-box; /* Mencegah elemen memperluas dengan padding */
+  }
+  

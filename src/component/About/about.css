@@ -1,0 +1,90 @@
+.box {
+  height: 1564px;
+  width: 1016px;
+}
+
+.box .group {
+  height: 1564px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 1016px;
+}
+
+.box .tentang-kami {
+  height: 1564px;
+  position: relative;
+  width: 1024px;
+}
+
+.box .text-wrapper {
+  color: #000000;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 36px;
+  font-weight: 500;
+  left: 377px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.box .BALI-awesome {
+  height: 508px;
+  left: 609px;
+  object-fit: cover;
+  position: absolute;
+  top: 130px;
+  width: 407px;
+}
+
+.box .img {
+  height: 508px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 727px;
+  width: 407px;
+}
+
+.box .div {
+  color: #000000;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 142px;
+  width: 571px;
+}
+
+.box .p {
+  color: #000000;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 445px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 739px;
+  width: 571px;
+}
+
+.box .text-wrapper-2 {
+  color: #000000;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1292px;
+  width: 1016px;
+}
