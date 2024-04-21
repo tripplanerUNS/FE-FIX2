@@ -1,4 +1,4 @@
-/* Paket.css */
+Paket.css
 
 .paket-wrap {
     margin-left: 250px;
@@ -35,7 +35,7 @@
     cursor: pointer;
   }
   
-  .popup {
+  /* .popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -45,13 +45,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
   
-  .popup-content {
+  /* .popup-content {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
-  }
+  } */
   
   .popup-input {
     width: 100%;

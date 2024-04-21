@@ -69,6 +69,10 @@ function Register() {
               <input className="input-input-register" type="password" id="confirm" name="confirm" placeholder="Masukkan ulang password Anda" value={credentials.confirm} onChange={handleChange} />
             </div>
             <div className="form-group">
+              <label className="label-input-register" htmlFor="no_tlpn">Nomer Telpon:</label>
+              <input className="input-input-register" type="text" id="no_tlpn" name="no_tlpn" placeholder="Masukkan ulang password Anda" value={credentials.no_tlpn} onChange={handleChange} />
+            </div>
+            <div className="form-group">
               <input type="checkbox" id="terms" name="terms" checked={credentials.terms} onChange={handleChange} />
               <label htmlFor="terms">I agree to the terms and conditions</label>
             </div>

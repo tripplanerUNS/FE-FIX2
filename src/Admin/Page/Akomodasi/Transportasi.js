@@ -12,7 +12,7 @@ function Transportasi() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/transportasi");
+        const response = await axios.get(`http://localhost:8000/api/auth/transportasi`);
         setTransportasiList(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -46,7 +46,7 @@ function Transportasi() {
     event.preventDefault();
 
     try {
-      await axios.put(`http://localhost:8000/api/transportasi/${editTransportasi.id}`, editTransportasi);
+      await axios.put(`http://localhost:8000/api/auth/updateTransport/${editTransportasi.id}`, editTransportasi);
       console.log("Transportasi updated successfully");
       setShowEditPopup(false);
     } catch (error) {
@@ -77,20 +77,22 @@ function Transportasi() {
                   <th>Tujuan</th>
                   <th>Jam Keberangkatan</th>
                   <th>Jam Kedatangan</th>
+                  <th>Kota</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {transportasiList.map((transportasi) => (
-                  <tr key={transportasi.id}>
-                    <td>{transportasi.id}</td>
-                    <td>{transportasi.nama}</td>
-                    <td>{transportasi.jenis}</td>
+                  <tr key={transportasi.id_transportasi}>
+                    <td>{transportasi.id_transportasi}</td>
+                    <td>{transportasi.nama_transportasi}</td>
+                    <td>{transportasi.jenis_transportasi}</td>
                     <td>{transportasi.harga}</td>
                     <td>{transportasi.berangkat}</td>
                     <td>{transportasi.tujuan}</td>
                     <td>{transportasi.jam_keberangkatan}</td>
                     <td>{transportasi.jam_kedatangan}</td>
+                    <td>{transportasi.kota}</td>
                     <td>
                       <button className="action-delete" onClick={() => handleDelete(transportasi.id)}>Delete</button>
                       <button className="action-edit" onClick={() => handleEdit(transportasi)}>Edit</button>

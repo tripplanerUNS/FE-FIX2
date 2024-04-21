@@ -14,7 +14,7 @@ function Paket() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/paket");
+        const response = await axios.get(`http://localhost:8000/api/auth/paket`);
         setPaketList(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -75,14 +75,13 @@ function Paket() {
                   <th>ID Paket</th>
                   <th>Nama Paket</th>
                   <th>Deskripsi</th>
-                  <th>Destinasi</th>
                   <th>Transportasi</th>
+                  <th>Jenis Transportasi</th>
                   <th>Hotel</th>
-                  <th>Harga Paket</th>
-                  <th>Fasilitas</th>
+                  <th>Kota</th>
                   <th>Kuliner</th>
-                  <th>Foto</th>
-                  <th>Rating</th>
+                  <th>Kuliner</th>
+                  <th>Harga Paket</th>
                   <th>Action</th>
                 </tr>
               </thead>

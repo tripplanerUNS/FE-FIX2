@@ -1,10 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../../Component/Sidebar/Sidebar";
 import Topbar from "../../Component/Topbar/Topbar";
+import axios from "axios";
 import "./Destinasi.css";
 
 function Destinasi() {
+  const [destinasi, setDestinasi ] = useState([]);
+  
+  // Get Data Destinasi
+  const fetchDestinasi = async () => {
+    try{
+      const response = await axios.get(``)
+
+      setDestinasi(response.data);
+    }catch(error){
+      console.log("Error", error);
+    }
+    };
+    
+  useEffect(()=>{
+    fetchDestinasi();
+},[])
+  
+
   return (
     <div>
       <Sidebar />

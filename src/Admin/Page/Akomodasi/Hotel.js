@@ -12,7 +12,7 @@ function Hotel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/hotel");
+        const response = await axios.get(`http://localhost:8000/api/auth/hotels`);
         setHotelList(response.data); // Mengambil data dari endpoint hotel
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -46,7 +46,7 @@ function Hotel() {
     event.preventDefault();
 
     try {
-      await axios.put(`http://localhost:8000/api/hotel/${editHotel.id}`, editHotel);
+      await axios.put(`http://localhost:8000/api/auth/hotels/edit/${editHotel.id_hotels}`, editHotel);
       console.log("Hotel updated successfully");
       setShowEditPopup(false);
     } catch (error) {
@@ -74,17 +74,21 @@ function Hotel() {
                   <th>Alamat</th>
                   <th>Harga Permalam</th>
                   <th>Gambar</th>
+                  <th>Kota</th>
+                  <th>Rating</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {hotelList.map((hotel) => (
-                  <tr key={hotel.id}>
-                    <td>{hotel.id}</td>
+                  <tr key={hotel.id_hotels}>
+                    <td>{hotel.id_hotels}</td>
                     <td>{hotel.nama_hotel}</td>
                     <td>{hotel.alamat}</td>
                     <td>{hotel.harga}</td>
                     <td>{hotel.gambar}</td>
+                    <td>{hotel.kota}</td>
+                    <td>{hotel.rating}</td>
                     <td>
                       <button className="action-agen-delete" onClick={() => handleDelete(hotel.id)}>Delete</button>
                       <button className="action-agen-edit" onClick={() => handleEdit(hotel)}>Edit</button>

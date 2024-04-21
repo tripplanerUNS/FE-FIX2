@@ -12,7 +12,7 @@ function Kuliner() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/kuliner");
+        const response = await axios.get(`http://localhost:8000/api/auth/food`);
         setKulinerList(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -70,17 +70,26 @@ function Kuliner() {
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Nama</th>
                   <th>Alamat</th>
+                  <th>Nama Kuliner</th>
+                  <th>Rating</th>
+                  <th>Keterangan</th>
+                  <th>Kota</th>
+                  <th>Tutup</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {kulinerList.map((kuliner) => (
-                  <tr key={kuliner.id}>
-                    <td>{kuliner.id}</td>
-                    <td>{kuliner.nama}</td>
+                  <tr key={kuliner.id_food}>
+                    <td>{kuliner.id_food}</td>
                     <td>{kuliner.alamat}</td>
+                    <td>{kuliner.nama_kuliner}</td>
+                    <td>{kuliner.rating}</td>
+                    <td>{kuliner.keterangan}</td>
+                    <td>{kuliner.kota}</td>
+                    <td>{kuliner.tutup}</td>
+
                     <td>
                       <button className="action-delete" onClick={() => handleDelete(kuliner.id)}>Delete</button>
                       <button className="action-edit" onClick={() => handleEdit(kuliner)}>Edit</button>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./paket.css";
 import { BrowserRouter as Router, Link } from 'react-router-dom';
@@ -6,11 +6,26 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 function PaketWisata() {
     const [paketWisata, setPaketWisata] = useState([
-        { gambar: "link_gambar_1.jpg", hotel: "Hotel A", destinasi: "Pulau Bali", transportasi: "Pesawat", harga: "Rp." },
-        { gambar: "link_gambar_1.jpg", hotel: "Hotel B", destinasi: "Gunung Bromo", transportasi: "Kereta Api", harga: "Rp." },
-        { gambar: "link_gambar_1.jpg", hotel: "Hotel C", destinasi: "Danau Toba", transportasi: "Bus", harga: "Rp." },
-        // Data paket wisata lainnya
+        // { gambar: "link_gambar_1.jpg", hotel: "Hotel A", destinasi: "Pulau Bali", transportasi: "Pesawat", harga: "Rp." },
+        // { gambar: "link_gambar_1.jpg", hotel: "Hotel B", destinasi: "Gunung Bromo", transportasi: "Kereta Api", harga: "Rp." },
+        // { gambar: "link_gambar_1.jpg", hotel: "Hotel C", destinasi: "Danau Toba", transportasi: "Bus", harga: "Rp." },
+        // // Data paket wisata lainnya
     ]);
+
+
+    //read with axios
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get(`http://localhost:8000/api/auth/paket/budget`);
+            setTransportasiList(response.data);
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     const handleDetailClick = (index) => {
         // Implement detail click logic here

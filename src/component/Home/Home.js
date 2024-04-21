@@ -54,6 +54,8 @@ function Home() {
     // Daftar paket wisata lainnya
 ]);
 
+{/* proses get kota dan budget -> ke ambil paket */}
+
   return (
     <div className="body">
       <Navbar />
@@ -92,6 +94,7 @@ function Home() {
                     }
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
+                    {/* disini juga di kasih proses untuk ambil data dari tujuan (kota) di tabel paket */}
                   />
                 </div>
               </div>
@@ -136,7 +139,7 @@ function Home() {
                   type="text"
                   className="budget-control"
                   placeholder="Your Budget"
-                ></input>
+                ></input> {/*disini daikasih proses ngambil data dari tabel paket (budget)*/}
               </div>
             </div>
             {/* Konten Invite */}
@@ -146,7 +149,7 @@ function Home() {
               </div>
               
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Submit</button> {/* ketika user input data form maka terjadi proses pengambilan data dari (KE = tujuan = (kota di dalam database paket), budget (budget di dalam database paket) -> dia ngeload untuk ambil data dari tabel paket noted jika tidak ada tujuan/budget maka memberikan notifikasi tidak ada data, semisal ada datanya maka dia ngeload dan ngepush ke halaman paket.js*/}
           </div>
         </div>
       )}

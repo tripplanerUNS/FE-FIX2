@@ -70,7 +70,7 @@ function Agen() {
   const addAgen = async () => {
     try {
       // Kirim permintaan POST ke endpoint yang sesuai di backend
-      await axios.post("http://127.0.0.1:8000/api/auth/agen/store", newAgen); // Sesuaikan URL dengan endpoint yang benar dan kirimkan data agen baru
+      await axios.post(`http://127.0.0.1:8000/api/auth/agen/store`, newAgen); // Sesuaikan URL dengan endpoint yang benar dan kirimkan data agen baru
       // Setel kembali nilai newAgen ke default setelah berhasil menambahkan agen baru
       setNewAgen({
         name: "",
@@ -83,8 +83,11 @@ function Agen() {
       hideAddPopup();
     } catch (error) {
       console.error("Error adding agen:", error);
+      // Tampilkan pesan kesalahan kepada pengguna menggunakan alert
+      alert("Gagal menambahkan agen. Silakan coba lagi.");
     }
   };
+  
 
   // Fungsi untuk menyunting data agen
   const editAgen = async () => {
@@ -210,8 +213,8 @@ function Agen() {
               <tbody>
                 {/* Loop melalui data agen dan tampilkan dalam tabel */}
                 {agens.map((agen) => (
-                  <tr key={agen.id}>
-                    <td>{agen.id}</td>
+                  <tr key={agen.id_agen}>
+                    <td>{agen.id_agen}</td>
                     <td>{agen.name}</td>
                     <td>{agen.username}</td>
                     <td>{agen.password}</td>

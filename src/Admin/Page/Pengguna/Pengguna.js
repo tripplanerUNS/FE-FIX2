@@ -87,8 +87,8 @@ function Pengguna() {
               </thead>
               <tbody>
                 {penggunaList.map((pengguna) => (
-                  <tr key={pengguna.id}>
-                    <td>{pengguna.id}</td>
+                  <tr key={pengguna.id_pengguna}>
+                    <td>{pengguna.id_pengguna}</td>
                     <td>{pengguna.nama}</td>
                     <td>{pengguna.username}</td>
                     <td>{pengguna.email}</td>
