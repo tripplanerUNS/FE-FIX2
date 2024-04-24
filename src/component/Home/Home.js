@@ -1,19 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
+import axios from "axios";
 import BG from "../../Assets/bg.png";
-import logo from "../../Assets/Trip Plan.png"
+import logo from "../../Assets/Trip Plan.png";
 import "./Home.css";
 import { MdSwapHorizontalCircle } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 import PaketWisata from "../Paket/paket";
-import Footer from "../Footer/Footer"
+import { useNavigate } from "react-router-dom";
 
-function Home() {
+function Home({origin, setOrigin, destination, setDestination, budget, setBudget, berangkat, setBerangkat}) {
   const [showPopup, setShowPopup] = useState(false);
   const popupRef = useRef(null);
-  const [origin, setOrigin] = useState("");
-  const [destination, setDestination] = useState("");
-  const [showFriendForm, setShowFriendForm] = useState(false); // New state for showing friend form
+  // const [origin, setOrigin] = useState("");
+  // const [destination, setDestination] = useState("");
+  // const [budget, setBudget] = useState("");
+  // const [berangkat, setBerangkat] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate()
+
+  const handleSubmit = async () => {
+    navigate("/PaketWisata");
+  };
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -39,22 +49,9 @@ function Home() {
     setDestination(temp);
   };
 
-  // New function to toggle showing friend form
-  const showFriendFormHandler = () => {
-    setShowFriendForm(!showFriendForm);
-  };
-
-  const handleDetailClick = (id) => {
-    // Logika penanganan klik detail
-    console.log(`Detail paket ${id} diklik`);
-  };
-
-  const [paketWisata, setPaketWisata] = useState([
-    { gambar: "link_gambar_1.jpg", hotel: "Hotel A", destinasi: "Pulau Bali", transportasi: "Pesawat", harga: "Rp." },
-    // Daftar paket wisata lainnya
-]);
-
-{/* proses get kota dan budget -> ke ambil paket */}
+  {
+    /* proses get kota dan budget -> ke ambil paket */
+  }
 
   return (
     <div className="body">
@@ -85,7 +82,7 @@ function Home() {
             <div className="container-content">
               <div className="content-1">
                 <div className="form-group">
-                  <label>{origin ? "Dari" : "Ke"}</label>
+                  <label>Dari</label>
                   <input
                     type="text"
                     className="form-control"
@@ -94,7 +91,6 @@ function Home() {
                     }
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
-                    {/* disini juga di kasih proses untuk ambil data dari tujuan (kota) di tabel paket */}
                   />
                 </div>
               </div>
@@ -107,7 +103,7 @@ function Home() {
               </div>
               <div className="content-1">
                 <div className="form-group">
-                  <label>{origin ? "Ke" : "Dari"}</label>
+                  <label>Ke</label>
                   <input
                     type="text"
                     className="form-control"
@@ -122,15 +118,20 @@ function Home() {
               <div className="content-1">
                 <div className="form-group-date">
                   <label>Berangkat</label>
-                  <input type="date" className="date-control"></input>
+                  <input
+                    type="date"
+                    className="date-control"
+                    value={berangkat}
+                    onChange={(e) => setBerangkat(e.target.value)}
+                  ></input>
                 </div>
               </div>
-              <div className="content-1">
+              {/* <div className="content-1">
                 <div className="form-group-date">
                   <label>Pulang</label>
                   <input type="date" className="date-control"></input>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="content-1">
               <div className="form-group-budget">
@@ -139,38 +140,28 @@ function Home() {
                   type="text"
                   className="budget-control"
                   placeholder="Your Budget"
-                ></input> {/*disini daikasih proses ngambil data dari tabel paket (budget)*/}
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
+                ></input>{" "}
+                {/*disini daikasih proses ngambil data dari tabel paket (budget)*/}
               </div>
             </div>
-            {/* Konten Invite */}
-            <div className="content-invite">
-              <div className="button-invite" onClick={showFriendFormHandler}>
-                <FaPlus /> Add Friends
-              </div>
-              
-            </div>
-            <button type="submit">Submit</button> {/* ketika user input data form maka terjadi proses pengambilan data dari (KE = tujuan = (kota di dalam database paket), budget (budget di dalam database paket) -> dia ngeload untuk ambil data dari tabel paket noted jika tidak ada tujuan/budget maka memberikan notifikasi tidak ada data, semisal ada datanya maka dia ngeload dan ngepush ke halaman paket.js*/}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {loading && 
+            <button type="button" onClick={handleSubmit}>
+              Loading...
+            </button>
+            }
+            {!loading && 
+            <button type="button" onClick={handleSubmit}>
+              Submit
+            </button>
+            }
+            
+            {/* ketika user input data form maka terjadi proses pengambilan data dari (KE = tujuan = (kota di dalam database paket), budget (budget di dalam database paket) -> dia ngeload untuk ambil data dari tabel paket noted jika tidak ada tujuan/budget maka memberikan notifikasi tidak ada data, semisal ada datanya maka dia ngeload dan ngepush ke halaman paket.js*/}
           </div>
         </div>
       )}
-
-<div id="paket-wisata">
-                {paketWisata.map((paket, index) => (
-                    <div className="paket" key={index}>
-                        <div className="gambar-container">
-                            <img className="gambar" src={paket.gambar} alt={"Gambar Paket Wisata " + (index + 1)} />
-                        </div>
-                        <div className="info">
-                            <div><strong>Hotel:</strong> {paket.hotel}</div>
-                            <div><strong>Destinasi:</strong> {paket.destinasi}</div>
-                            <div><strong>Transportasi:</strong> {paket.transportasi}</div>
-                            <div><strong>Harga:</strong> {paket.harga}</div>
-                            <button onClick={() => handleDetailClick(index)}>Detail</button>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
 
       <section className="body-bantuan" id="bantuan">
         <div className="wrap-bantuan">
@@ -194,47 +185,44 @@ function Home() {
         </div>
       </section>
 
-
       <footer className="footer">
-            <div className="footer-container">
-                <div className="footer-row">
-                    <div className="footer-col">
-                        <img src={logo} alt="logo" />
-                    </div>
-                    <div className="footer-col">
-                        <h4>Pembayaran</h4>
-                        <ul>
-                            <li>Shopeepay</li>
-                            <li>Gopay</li>
-                            <li>Dana</li>
-                            <li>Qris</li>
-                            <li>M-banking</li>
-                        </ul>
-                    </div>
-                    <div className="footer-col">
-                        <h4>Follow me</h4>
-                        <ul>
-                            <li>Instagram</li>
-                            <li>Twitter</li>
-                            <li>Facebook</li>
-                            <li>Tiktok</li>
-                            <li>Youtube</li>
-                        </ul>
-                    </div>
-                    <div className="footer-col">
-                        <h4>Thanks To</h4>
-                        <ul>
-                            <li>Tuhan YME</li>
-                            <li>Parent</li>
-                            <li>UNS</li>
-                        </ul>
-                    </div>
-                </div>
+        <div className="footer-container">
+          <div className="footer-row">
+            <div className="footer-col">
+              <img src={logo} alt="logo" />
             </div>
-            <div className="footer-bottom">
-                <p>&copy; 2024 Trip Planner App. All rights reserved.</p>
+            <div className="footer-col">
+              <h4>Pembayaran</h4>
+              <ul>
+                <li>Shopeepay</li>
+                <li>Gopay</li>
+                <li>Dana</li>
+                <li>Qris</li>
+                <li>M-banking</li>
+              </ul>
             </div>
-        </footer>
+            <div className="footer-col">
+              <h4>Follow me</h4>
+              <ul>
+                <li>Instagram</li>
+                <li>Twitter</li>
+                <li>Facebook</li>
+                <li>Tiktok</li>
+                <li>Youtube</li>
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4>Thanks To</h4>
+              <ul>
+                <li>Tuhan YME</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; 2024 Trip Planner App. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
