@@ -86,8 +86,7 @@ function Home({origin, setOrigin, destination, setDestination, budget, setBudget
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={
-                      origin ? "Masukkan tempat asal" : "Masukkan tujuan"
+                    placeholder={"Masukkan tempat asal" 
                     }
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
@@ -108,7 +107,7 @@ function Home({origin, setOrigin, destination, setDestination, budget, setBudget
                     type="text"
                     className="form-control"
                     placeholder={
-                      origin ? "Masukkan tujuan" : "Masukkan tempat asal"
+                      "Masukkan tujuan"
                     }
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}

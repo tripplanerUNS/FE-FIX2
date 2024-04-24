@@ -26,7 +26,7 @@ function PaketWisata({ dari, destinasi, tanggal, bugdet }) {
         if (response.status === 200) {
           // setLoading(false);
           setPaketWisata(response.data);
-          // console.log(response.data); // Menampilkan output dari backend di console
+          console.log(response.data); // Menampilkan output dari backend di console
         }
 
         // Lakukan penanganan respons sesuai kebutuhan, misalnya menampilkan data pada halaman atau melakukan navigasi ke halaman lain
@@ -43,7 +43,15 @@ function PaketWisata({ dari, destinasi, tanggal, bugdet }) {
     fetchData();
   }, []);
 
-  // bagian atas jangan di apa2in ya, fokus ke tampilan aja.
+  const handleDetailClick = (index) => {
+    // Implement detail click logic here
+    console.log("Detail button clicked for index:", index);
+  };
+
+  const handleFilterClick = () => {
+    // Implement filter click logic here
+    console.log("Filter button clicked");
+  };
 
   return (
     <div>
