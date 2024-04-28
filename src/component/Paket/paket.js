@@ -10,8 +10,6 @@ function PaketWisata({ dari, destinasi, tanggal, bugdet }) {
   //read with axios
   useEffect(() => {
     const fetchData = async () => {
-      // setErrorMessage("");
-      // setLoading(true);
       try {
         const response = await axios.post(
           `http://localhost:8000/api/auth/paket/budget`,
@@ -23,121 +21,54 @@ function PaketWisata({ dari, destinasi, tanggal, bugdet }) {
           }
         );
 
-        if (response.status === 200) {
-          // setLoading(false);
+        if (response.status === 200 && response.data.length > 0) {
           setPaketWisata(response.data);
-          console.log(response.data); // Menampilkan output dari backend di console
-        }
-
-        // Lakukan penanganan respons sesuai kebutuhan, misalnya menampilkan data pada halaman atau melakukan navigasi ke halaman lain
-      } catch (error) {
-        if (error.response) {
-          // setLoading(false);
-          // setErrorMessage(error.response.data.message);
+          console.log(response);
         } else {
-          // setErrorMessage("Something went wrong. Please try again.");
+          // Menangani kasus jika tidak ada data yang diterima atau respons bukan 200
+          console.log("Tidak ada data yang ditemukan");
         }
+      } catch (error) {
+        // Tangani error request
+        console.error("Error:", error);
       }
     };
 
     fetchData();
-  }, []);
-
-  const handleDetailClick = (index) => {
-    // Implement detail click logic here
-    console.log("Detail button clicked for index:", index);
-  };
-
-  const handleFilterClick = () => {
-    // Implement filter click logic here
-    console.log("Filter button clicked");
-  };
+  }, [dari, destinasi, tanggal, bugdet]);
 
   return (
     <div>
-      <Navbar />
-      <div className="container">
-        <div className="row">
-          <div className="column">
-            <div id="paket-wisata">
-              {paketWisata.map((paket, index) => (
-                <div className="paket" key={index}>
-                  <div className="gambar-container">
-                    <img
-                      className="gambar"
-                      src={paket.gambar}
-                      alt={"Gambar Paket Wisata " + (index + 1)}
-                    />
+      <div>
+        <Navbar />
+      </div>
+      <div className="content-paket">
+        {paketWisata.map((paket) => (
+          <div key={paket.id} className="paket">
+            <div className="judul-paket">{paket.destinasi}</div>
+            <div className="list-paket">
+              <div className="wrap-list-paket">
+                <div className="paketw">
+                  <div className="gambar-paket">
+                    <image src={paket.image} alt="Non image" />
                   </div>
-                  <div className="info">
-                    <div>
-                      <strong>Hotel:</strong> {paket.hotel}
-                    </div>
-                    <div>
-                      <strong>Destinasi:</strong> {paket.destinasi}
-                    </div>
-                    <div>
-                      <strong>Transportasi:</strong> {paket.transportasi}
-                    </div>
-                    <div>
-                      <strong>Harga:</strong> {paket.harga}
-                    </div>
-                    <button onClick={() => handleDetailClick(index)}>
-                      Detail
-                    </button>
+                  <div className="infoPaket">
+                    <p>{paket.nama_paket}</p>
+                    <p>{paket.Tujuan}</p>
+                    <p>{paket.Harga_paket}</p>
+                  </div>
+                  <div>
+                    <button className="detailPaket">Lihat Detail</button>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="column">
-            <div className="filter">
-              <h3>Filter by:</h3>
-              <p>Your budget (Per night):</p>
-              <select>
-                <option value="50000">Rp. 500.000</option>
-                <option value="50000">Rp. 1.000.000</option>
-                <option value="50000">Rp. 1.500.000</option>
-                <option value="2000000">Rp. 2.000.000+</option>
-              </select>
-              <div className="popular-filter">
-                <h3>Popular Filter:</h3>
-                <ul>
-                  <li>
-                    <input type="checkbox" id="freeWifi" />
-                    <label htmlFor="freeWifi">Free Wifi</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="fiveStar" />
-                    <label htmlFor="fiveStar">5 Star</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="veryGood" />
-                    <label htmlFor="veryGood">Very Good: 8+</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="twinBeds" />
-                    <label htmlFor="twinBeds">Twin Beds</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="airConditioning" />
-                    <label htmlFor="airConditioning">Air Conditioning</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="spa" />
-                    <label htmlFor="spa">Spa</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="noPrepayment" />
-                    <label htmlFor="noPrepayment">No Prepayment</label>
-                  </li>
-                </ul>
               </div>
-              <button onClick={handleFilterClick}>Apply Filter</button>
             </div>
           </div>
-        </div>
+        ))}
+      </div>
+      <div className="filter">
+        <div className="filterby">FilterBY</div>
+        <div className="content-filter"></div>
       </div>
     </div>
   );

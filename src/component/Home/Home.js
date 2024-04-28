@@ -9,7 +9,16 @@ import { FaPlus } from "react-icons/fa";
 import PaketWisata from "../Paket/paket";
 import { useNavigate } from "react-router-dom";
 
-function Home({origin, setOrigin, destination, setDestination, budget, setBudget, berangkat, setBerangkat}) {
+function Home({
+  origin,
+  setOrigin,
+  destination,
+  setDestination,
+  budget,
+  setBudget,
+  berangkat,
+  setBerangkat,
+}) {
   const [showPopup, setShowPopup] = useState(false);
   const popupRef = useRef(null);
   // const [origin, setOrigin] = useState("");
@@ -19,7 +28,7 @@ function Home({origin, setOrigin, destination, setDestination, budget, setBudget
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     navigate("/PaketWisata");
@@ -86,8 +95,7 @@ function Home({origin, setOrigin, destination, setDestination, budget, setBudget
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={"Masukkan tempat asal" 
-                    }
+                    placeholder={"Masukkan tempat asal"}
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
                   />
@@ -106,9 +114,7 @@ function Home({origin, setOrigin, destination, setDestination, budget, setBudget
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={
-                      "Masukkan tujuan"
-                    }
+                    placeholder={"Masukkan tujuan"}
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                   />
@@ -146,17 +152,17 @@ function Home({origin, setOrigin, destination, setDestination, budget, setBudget
               </div>
             </div>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-            {loading && 
-            <button type="button" onClick={handleSubmit}>
-              Loading...
-            </button>
-            }
-            {!loading && 
-            <button type="button" onClick={handleSubmit}>
-              Submit
-            </button>
-            }
-            
+            {loading && (
+              <button type="button" onClick={handleSubmit}>
+                Loading...
+              </button>
+            )}
+            {!loading && (
+              <button type="button" onClick={handleSubmit}>
+                Submit
+              </button>
+            )}
+
             {/* ketika user input data form maka terjadi proses pengambilan data dari (KE = tujuan = (kota di dalam database paket), budget (budget di dalam database paket) -> dia ngeload untuk ambil data dari tabel paket noted jika tidak ada tujuan/budget maka memberikan notifikasi tidak ada data, semisal ada datanya maka dia ngeload dan ngepush ke halaman paket.js*/}
           </div>
         </div>
@@ -179,6 +185,22 @@ function Home({origin, setOrigin, destination, setDestination, budget, setBudget
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="body-about" id="about">
+        <div className="wrap-about">
+          <div className="for-judul">
+            <h2 className="judul-about">About</h2>
+          </div>
+          <div className="content">
+            <div className="about-1">
+              <text className="">Kami adalah sebuah tim yang berdedikasi untuk memberikan pengalaman perjalanan yang tak terlupakan kepada
+            setiap pelanggan kami. Dengan lebih dari sepuluh tahun pengalaman dalam industri perjalanan, kami telah
+            menjadi mitra yang tepercaya bagi mereka yang mencari petualangan, kenyamanan, dan inspirasi. Kami percaya
+            bahwa setiap perjalanan adalah sebuah cerita yang unik, dan kami berkomitmen untuk menyediakan layanan yang
+            dapat disesuaikan dengan kebutuhan dan keinginan setiap pelanggan kami.</text>
             </div>
           </div>
         </div>

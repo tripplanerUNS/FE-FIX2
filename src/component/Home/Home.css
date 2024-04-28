@@ -224,18 +224,19 @@ label {
   
   .content-bantuan-vidio {
     position: relative;
-    width: 70%; /* Atur lebar sesuai kebutuhan */
-    height: 40%;
-    padding-bottom: 56.25%; /* Perbandingan aspek 16:9 untuk video */
-    overflow: hidden;
+    width: 80%; 
+    height: 90%; 
+    margin-bottom: 30%; /* Perbandingan aspek 16:9 untuk video */
+    margin-left: 20%;
+    /* overflow: hidden; */
   }
   
   .content-bantuan-vidio iframe {
     position: absolute;
     top: 0;
     left: 15%;
-    width: 70%;
-    height: 50%;
+    /* width: 70%;
+    height: 50%; */
     border-radius: 10px;
   }
 

@@ -44,7 +44,7 @@ function Navbar() {
           </li>{" "}
           {/* Gunakan HashLink untuk navigasi ke bagian bantuan */}
           <li>
-            <Link smooth to="/about">
+            <Link smooth to="#about">
               About
             </Link>
           </li>

@@ -1,65 +1,39 @@
-/* paket.css */
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
+/* Konten Paket */
+.content-paket {
   flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10%;
+  
 }
 
-.column {
-  flex: 0 0 48%;
-  margin-bottom: 20px;
-}
-
+/* Paket */
 .paket {
-  display: flex;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 45%; /* Atur lebar paket */
+  margin-bottom: 20px; /* Atur jarak antar paket */
+  border: 1px solid #c32424; /* Atur border */
+  padding: 10px; /* Atur padding */
+  box-sizing: border-box; /* Pastikan padding tidak mempengaruhi lebar paket */
 }
 
-.gambar-container {
-  flex: 0 0 40%;
+/* Judul Paket */
+.judul-paket {
+  font-weight: bold; /* Atur tebal huruf */
+  margin-bottom: 10px; /* Atur jarak bawah judul */
 }
 
-.gambar {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+/* Gambar Paket */
+.gambar-paket {
+  height: 300px; /* Atur tinggi gambar */
+  background-position: center; /* Tampilkan gambar di tengah */
 }
 
+/* Info Paket */
 .info {
-  padding: 20px;
+  /* Tambahkan gaya sesuai kebutuhan */
 }
 
-.filter {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.filter h3 {
-  margin: 0 0 10px;
-}
-
-.popular-filter ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.popular-filter li {
-  margin-bottom: 5px;
-}
-
-.popular-filter input[type="checkbox"] {
-  margin-right: 5px;
+/* Harga Paket */
+.harga-paket {
+  /* Tambahkan gaya sesuai kebutuhan */
 }
