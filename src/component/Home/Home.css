@@ -4,6 +4,16 @@
   font-family: Cambria, serif; /* Mengubah font menjadi Cambria */
 }
 
+.containerHome {
+  position: relative;
+  top: -50px; /* Sesuaikan dengan jarak yang diinginkan */
+  background-color: white; /* Warna latar belakang container */
+  padding: 20px; /* Padding agar konten tidak terlalu dekat dengan tepi container */
+  border-radius: 50px; /* Menggunakan border-radius untuk membuat container melengkung */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk container */
+}
+
+
 
 .background {
   background-size: cover;

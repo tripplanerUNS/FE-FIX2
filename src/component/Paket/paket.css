@@ -1,19 +1,29 @@
 
 /* Konten Paket */
-.content-paket {
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+.rowPaket {
   margin-top: 10%;
-  
+  display: flex;
+  justify-content: space-between;
 }
+
+.content-paket {
+ flex: 1; 
+}
+  
 
 /* Paket */
 .paket {
-  width: 45%; /* Atur lebar paket */
-  margin-bottom: 20px; /* Atur jarak antar paket */
-  border: 1px solid #c32424; /* Atur border */
-  padding: 10px; /* Atur padding */
-  box-sizing: border-box; /* Pastikan padding tidak mempengaruhi lebar paket */
+  width: 90%; /* Ensure paket occupies full width within content-paket */
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-left: 6%;
+  top: -50px; /* Sesuaikan dengan jarak yang diinginkan */
+  background-color: white; /* Warna latar belakang container */
+  padding: 20px; /* Padding agar konten tidak terlalu dekat dengan tepi container */
+  border-radius: 20px; /* Menggunakan border-radius untuk membuat container melengkung */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk container */
 }
 
 /* Judul Paket */
@@ -37,3 +47,16 @@
 .harga-paket {
   /* Tambahkan gaya sesuai kebutuhan */
 }
+
+
+/*filter*/
+.content-filter{
+  width: 30%; /* Set the width of the content-filter */
+  height:fit-content;
+  margin-left: 20px;
+  border: 1px solid #000000;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+

@@ -17,7 +17,7 @@ function Detail() {
         // Fungsi untuk mendapatkan data detail destinasi dari API
         const fetchDestinationData = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/api/destination/1"); // Ganti URL dengan URL API sesuai kebutuhan
+                const response = await axios.get(`http://localhost:8000/api/auth/paket/paket`); // Ganti URL dengan URL API sesuai kebutuhan
                 setDestinationData(response.data);
             } catch (error) {
                 console.error("Error fetching destination data:", error);
@@ -46,7 +46,7 @@ function Detail() {
                         )}
                     </div>
                     <div className='overview-section'>
-                        <h3 className='title'>overview</h3>
+                        <h3 className='title'>sorry content not available yet</h3>
                         <div className='row'>
                             {destinationData && (
                                 <div className='col-lg-4 col-md-6 col-sm-6'>

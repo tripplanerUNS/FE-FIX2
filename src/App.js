@@ -40,6 +40,7 @@ function App() {
         <Route path="/Detail" element={<Detail />} />
         <Route path="/About" element={<About />} />
         <Route path="/PaketWisata" element={<PaketWisata dari={origin} destinasi={destination} bugdet={budget} tanggal={berangkat}/>} />
+        <Route path="/Detailpaket" element={<Detail />} />
       </Routes>
     </Router>
   );
