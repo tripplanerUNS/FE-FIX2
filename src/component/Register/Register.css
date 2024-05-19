@@ -1,103 +1,141 @@
+/* Register.css */
+
 .wrap-register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .container-register {
-    width: 25%;
-    height: 70%;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .tab-register {
-    display: flex;
-    justify-content: center; /* Pindahkan ke tengah */
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .user-register {
-    display: flex;
-  }
-  
-  .tab-user,
-  .tab-agen,
-  .tab-admin {
-    padding: 15px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .tab-user.active,
-  .tab-agen.active,
-  .tab-admin.active {
-    background-color: #f0f0f0;
-  }
-  
-  .wrap-form-register {
-    padding: 20px;
-  }
-  
-  .form-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-register {
+  width: 100%;
+  max-width: 800px; /* Sesuaikan ukuran maksimum container sesuai kebutuhan */
+  margin: 0 auto; /* Pusatkan container */
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px; /* Tambahkan border radius */
+  background-color: #ffffff; /* Warna latar belakang */
+  padding: 20px; /* Tambahkan padding */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tambahkan efek bayangan */
+}
+
+
+.row {
+  display: flex;
+}
+
+.wrap-form-register {
+  width: 60%; /* Lebar form */
+  padding: 20px;
+}
+
+.image {
+  width: 40%; /* Lebar gambar */
+  display: flex;
+  justify-content: center; /* Pusatkan gambar secara horizontal */
+  align-items: center; /* Pusatkan gambar secara vertikal */
+}
+
+.image img {
+  max-width: 100%; /* Gambar tidak melebihi lebar parent */
+  height: auto; /* Gambar menyesuaikan proporsi */
+}
+
+.register-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.label-input-register {
+  font-weight: 500;
+}
+
+.input-input-register {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.register {
+  margin-left: 5%;
+}
+
+.toaster {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
   }
   
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .label-input-register {
-    font-weight: 500;
-    text-align: center;
-  }
-  
-  .input-input-register[type="text"],
-  .input-input-register[type="email"],
-  .input-input-register[type="password"] {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
+  .toast {
+    background-color: #000000;
     border-radius: 4px;
-    margin-left: auto;
-    margin-right: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 12px 20px;
+    margin-top: 10px;
+    max-width: 300px;
+    animation: slide-in 0.3s ease-out;
   }
   
-  input[type="checkbox"] {
-    margin-right: 5px;
+  .toast.success {
+    background-color: #d4edda;
+    color: #155724;
   }
   
-  button[type="submit"] {
-    width: 40%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-left: 30%;
+  .toast.error {
+    background-color: #f8d7da;
+    color: #721c24;
   }
   
-  button[type="submit"]:hover {
-    background-color: #0056b3;
+  .toast.info {
+    background-color: #cce5ff;
+    color: #004085;
   }
   
-  .input-with-icon {
-    position: relative;
+  .toast.warning {
+    background-color: #fff3cd;
+    color: #856404;
   }
   
-  .input-with-icon .icon {
-    position: absolute;
-    left: 3%;
-    top: 1%;
-    transform: translateY(-50%);
+  @keyframes slide-in {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
-  
-  .input-with-icon input[type="email"] {
-    padding-left: 30px; /* Agar input tidak tertutup oleh ikon */
-  }
-  

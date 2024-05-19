@@ -4,12 +4,21 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import Sidebar from "../../Component/Sidebar/Sidebar";
 import Topbar from "../../Component/Topbar/Topbar";
 import "./Paket.css";
+import { CiEdit } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
 
 function Paket() {
   const [paketList, setPaketList] = useState([]);
   const [editPaket, setEditPaket] = useState(null);
   const [showEditPopup, setShowEditPopup] = useState(false);
-  const [showAddPopup, setShowAddPopup] = useState(false); // Define showAddPopup state
+  const [showAddPopup, setShowAddPopup] = useState(false);
+  const [newPaketData, setNewPaketData] = useState({
+    nama_paket: "",
+    deskripsi: "",
+    budget: "",
+    kota: "",
+    gambar: ""
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +32,27 @@ function Paket() {
 
     fetchData();
   }, []);
+
+  const addPaket = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:8000/api/auth/paket/generate`,
+        newPaketData
+      );
+
+      setNewPaketData({
+        nama_paket: "",
+        deskripsi: "",
+        budget: "",
+        kota: "",
+        gambar: ""
+      });
+
+      alert("Data berhasil ditambahkan:", response.data);
+    } catch (error) {
+      console.error("Error adding paket:", error);
+    }
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -58,15 +88,21 @@ function Paket() {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setEditPaket({ ...editPaket, [name]: value });
+    setNewPaketData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
   };
+
 
   return (
     <div>
       <Sidebar />
       <Topbar />
       <div className="paket-wrap">
-        <button className="add-button" onClick={() => setShowAddPopup(true)}>Tambah Paket</button> {/* Add button for showing add popup */}
+        <button className="add-button" onClick={() => setShowAddPopup(true)}>
+          Tambah Paket
+          </button> {/* Add button for showing add popup */}
         <div className="container-paket">
           <div className="table-paket-content">
             <table>
@@ -80,8 +116,8 @@ function Paket() {
                   <th>Hotel</th>
                   <th>Kota</th>
                   <th>Kuliner</th>
-                  <th>Kuliner</th>
                   <th>Harga Paket</th>
+                  <th>Foto</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -91,17 +127,20 @@ function Paket() {
                     <td>{paket.id_paket}</td>
                     <td>{paket.nama_paket}</td>
                     <td>{paket.deskripsi}</td>
-                    <td>{paket.destinasi}</td>
                     <td>{paket.transportasi}</td>
+                    <td>{paket.jenis_transportasi}</td>
                     <td>{paket.hotel}</td>
+                    <td>{paket.kota}</td>
+                    <td>{paket.food}</td>
                     <td>{paket.harga_paket}</td>
-                    <td>{paket.fasilitas}</td>
-                    <td>{paket.kuliner}</td>
-                    <td><img src={paket.foto} alt="Foto" /></td>
-                    <td>{paket.rating}</td>
+                    <td><img
+                        src={`http://localhost:8000/uploads/paket/${paket.image}`} 
+                        alt="Non image"
+                        width="100px"
+                      /></td>
                     <td>
-                      <button className="action-delete" onClick={() => handleDelete(paket.id_paket)}>Delete</button>
-                      <button className="action-edit" onClick={() => handleEdit(paket)}>Edit</button>
+                      <button className="action-delete" onClick={() => handleDelete(paket.id_paket)}> <MdDelete /> </button>
+                      <button className="action-edit" onClick={() => handleEdit(paket)}> <CiEdit /> </button>
                     </td>
                   </tr>
                 ))}
@@ -126,6 +165,50 @@ function Paket() {
           <div className="popup-content">
             <h2 className="add-title">Tambah Paket</h2>
             {/* Form for adding new paket */}
+            {/* Form 1. nama_paket 2. deskripsi 3. budget 4. kota 5. gambar */}
+            <form onSubmit={newPaketData}>
+                  <input
+                    type="text"
+                    name="name"
+                    className="popup-content-form"
+                    placeholder="Nama paket"
+                    value={newPaketData.name}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="text"
+                    name="deskripsi"
+                    className="popup-content-form"
+                    placeholder="Deskripsi"
+                    value={newPaketData.deskripsi}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="text"
+                    name="budget"
+                    className="popup-content-form"
+                    placeholder="Budget"
+                    value={newPaketData.budget}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="text"
+                    name="kota"
+                    className="popup-content-form"
+                    placeholder="Kota"
+                    value={newPaketData.kota}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="file"
+                    name="gambar"
+                    className="popup-content-form"
+                    placeholder="Gambar"
+                    value={newPaketData.gambar}
+                    onChange={handleInputChange}
+                  />
+                  <button type="submit" className="tambah-form" onSubmit={addPaket}>Tambah</button>
+                </form>
             <button className="popup-btn" onClick={() => setShowAddPopup(false)}>Close</button>
           </div>
         </div>

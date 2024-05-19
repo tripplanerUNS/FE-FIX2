@@ -79,6 +79,10 @@
     box-sizing: border-box; /* Pastikan ukuran border masuk ke dalam ukuran elemen */
 }
 
+/* Tombol LOGOUT */
+.nav-menu li.logout a {
+    color: red; /* Warna teks LOGOUT */
+}
 
 /* Media query untuk menampilkan tombol toggle hanya pada tampilan responsif */
 @media (max-width: 768px) {
@@ -116,12 +120,15 @@
         
     }
 
-    
-
     .nav-menu.open li:hover {
         background-color: #3784F8; /* Ganti warna latar belakang saat tombol dihover */
         border-radius: 5px;
         box-sizing: border-box;
+    }
+
+    /* Tombol LOGOUT di mode responsif */
+    .nav-menu.open li.logout a {
+        background-color: red; /* Warna teks LOGOUT */
     }
     
 }

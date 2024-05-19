@@ -5,26 +5,26 @@ import "./Detail.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
-function Detail() {
-  const [hotel, setHotel] = useState(null);
-  const { id_hotels } = useParams(); // Mengambil id dari URL
+function DetailTransport() {
+  const [transportasi, setTransportasi] = useState(null);
+  const { id_transportasi } = useParams(); // Mengambil id dari URL
 
   useEffect(() => {
     // Fungsi untuk mendapatkan data detail hotel dari API
     const fetchHotelData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/auth/hotels/${id_hotels}`
+          `http://localhost:8000/api/auth/transport/${id_transportasi}`
         ); // Menggunakan id dari URL
         console.log("Response data:", response.data); // Tambahkan console.log di sini
-        setHotel(response.data);
+        setTransportasi(response.data);
       } catch (error) {
         console.error("Error fetching hotel data:", error);
       }
     };
 
     fetchHotelData();
-  }, [id_hotels]); // Menjalankan useEffect ketika id berubah
+  }, [id_transportasi]); // Menjalankan useEffect ketika id berubah
 
   return (
     <div>
@@ -34,21 +34,21 @@ function Detail() {
         <div className="container">
           <div className="aon-destination-detail-content">
             <div className="destination-head">
-              {hotel ? (
-                <div key={hotel.id_hotels} className="destination-card">
+              {transportasi ? (
+                <div key={transportasi.id_transportasi} className="destination-card">
                   <div className="card-content">
                     <div className="card-header">
                       <img
-                        src={hotel.image}
-                        alt={`${hotel.nama_hotel} Image`}
+                        src={transportasi.image}
+                        alt={`Icon pesawat`}
                       />
                     </div>
                     <div className="card-body">
-                      <h3>{hotel.nama_hotel}</h3>
-                      <p>Kota: {hotel.kota}</p>
-                      <p>Alamat: {hotel.alamat}</p>
-                      <p>Harga per malam: Rp {hotel.harga}</p>
-                      <p>Rating: {hotel.rating}</p>
+                      <h3>{transportasi.nama_transportasi}</h3>
+                      <p> {transportasi.jenis_transportasi}</p>
+                      <p> {transportasi.berangkat}</p>
+                      <p> {transportasi.tujuan}</p>
+                      <p> {transportasi.harga}</p>
                     </div>
                   </div>
                 </div>
@@ -65,4 +65,4 @@ function Detail() {
   );
 }
 
-export default Detail;
+export default DetailTransport;

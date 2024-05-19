@@ -1,62 +1,131 @@
+/* paket.css */
 
-/* Konten Paket */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
 
 .rowPaket {
-  margin-top: 10%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .content-paket {
- flex: 1; 
+  width: 80%;
+  padding: 70px;
+  border-radius: 8px;
 }
-  
 
-/* Paket */
 .paket {
-  width: 90%; /* Ensure paket occupies full width within content-paket */
+  border: 1px solid #ddd;
+  border-radius: 8px;
   margin-bottom: 20px;
-  padding: 10px;
-  box-sizing: border-box;
-  margin-left: 6%;
-  top: -50px; /* Sesuaikan dengan jarak yang diinginkan */
-  background-color: white; /* Warna latar belakang container */
-  padding: 20px; /* Padding agar konten tidak terlalu dekat dengan tepi container */
-  border-radius: 20px; /* Menggunakan border-radius untuk membuat container melengkung */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk container */
+  overflow: hidden;
+  background-color: #fafafa;
 }
 
-/* Judul Paket */
 .judul-paket {
-  font-weight: bold; /* Atur tebal huruf */
-  margin-bottom: 10px; /* Atur jarak bawah judul */
-}
-
-/* Gambar Paket */
-.gambar-paket {
-  height: 300px; /* Atur tinggi gambar */
-  background-position: center; /* Tampilkan gambar di tengah */
-}
-
-/* Info Paket */
-.info {
-  /* Tambahkan gaya sesuai kebutuhan */
-}
-
-/* Harga Paket */
-.harga-paket {
-  /* Tambahkan gaya sesuai kebutuhan */
-}
-
-
-/*filter*/
-.content-filter{
-  width: 30%; /* Set the width of the content-filter */
-  height:fit-content;
-  margin-left: 20px;
-  border: 1px solid #000000;
+  background-color: #007bff;
+  color: white;
   padding: 10px;
-  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+}
+
+.list-paket {
+  padding: 10px;
+}
+
+.wrap-list-paket {
+  display: flex;
+  flex-direction: column;
+}
+
+.paketw {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hotel, .transportasi {
+  width: 48%;
+  padding: 10px;
+}
+
+.hotel div, .transportasi div {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.gambar-paket img {
+  width: 75%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.infoPaket {
+  padding-left: 20px;
+}
+
+.infoPaket p {
+  margin: 5px 0;
+  
+}
+
+/* Styling for the container div */
+.paket-container {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: flex-start; /* Align children to the start of the container */
+  padding: 10px; /* Add some padding for better spacing */
+  margin: 10px 0; /* Add some margin for spacing between elements */
+}
+
+/* Styling for the price paragraph */
+.paket-container p {
+  margin-bottom: 10px; /* Add some space below the price */
+  font-size: 18px; /* Adjust font size */
+  font-weight: bold; /* Make the price bold */
+}
+
+/* Styling for the button */
+.detailPaket {
+  padding: 10px 20px; /* Add padding inside the button */
+  font-size: 16px; /* Adjust font size */
+  background-color: #007BFF; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.detailPaket:hover {
+  background-color: #0056b3; /* Darken background on hover */
+}
+
+
+.icon {
+  font-size: 24px;
+  margin-right: 5px;
 }
 
 

@@ -86,7 +86,7 @@ function Hotel() {
                     <td>{hotel.nama_hotel}</td>
                     <td>{hotel.alamat}</td>
                     <td>{hotel.harga}</td>
-                    <td>{hotel.gambar}</td>
+                    <td><img src={hotel.gambar} alt={hotel.nama_hotel} style={{ width: '100px' }} /></td>
                     <td>{hotel.kota}</td>
                     <td>{hotel.rating}</td>
                     <td>
