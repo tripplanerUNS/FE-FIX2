@@ -4,6 +4,9 @@ import Sidebar from "../../Component/Sidebar/Sidebar";
 import Topbar from "../../Component/Topbar/Topbar";
 import "./Agen.css";
 import axios from "axios";
+import { CiEdit } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
+import { FaPlus } from "react-icons/fa";
 
 function Agen() {
   const [agens, setAgens] = useState([]);
@@ -114,7 +117,7 @@ function Agen() {
       <Topbar />
       <div className="Agen-wrap">
         <div className="container-agen">
-          <button className="button-tambah-agen" onClick={showAddPopup}>
+          <button className="button-tambah-agen" onClick={showAddPopup}> <FaPlus />
             Tambah Agen
           </button>
 
@@ -220,14 +223,14 @@ function Agen() {
                     <td>{agen.password}</td>
                     {/* Tambahkan tombol untuk action seperti edit atau hapus */}
                     <td>
-                      <button className="action-agen-edit" onClick={() => toggleshowEditPopup(agen)}>
-                        Edit
+                      <button className="action-agen-edit" onClick={() => toggleshowEditPopup(agen)}> <CiEdit />
+                        
                       </button>
                       <button
                         className="action-agen-delete"
-                        onClick={() => deleteAgen(agen.id)}
-                      >
-                        Delete
+                        onClick={() => deleteAgen(agen.id)} 
+                      > <MdDelete />
+                       
                       </button>
                     </td>
                   </tr>

@@ -3,6 +3,8 @@ import axios from "axios";
 import Sidebar from "../../Component/Sidebar/Sidebar";
 import Topbar from "../../Component/Topbar/Topbar";
 import "./Hotel.css";
+import { CiEdit } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
 
 function Hotel() {
   const [hotelList, setHotelList] = useState([]); // Mengganti penggunaList dengan hotelList
@@ -86,12 +88,12 @@ function Hotel() {
                     <td>{hotel.nama_hotel}</td>
                     <td>{hotel.alamat}</td>
                     <td>{hotel.harga}</td>
-                    <td><img src={hotel.gambar} alt={hotel.nama_hotel} style={{ width: '100px' }} /></td>
+                    <td>{hotel.gambar}</td>
                     <td>{hotel.kota}</td>
                     <td>{hotel.rating}</td>
                     <td>
-                      <button className="action-agen-delete" onClick={() => handleDelete(hotel.id)}>Delete</button>
-                      <button className="action-agen-edit" onClick={() => handleEdit(hotel)}>Edit</button>
+                    <button className="action-delete" onClick={() => handleDelete(hotel.id)}> <MdDelete /> </button>
+                      <button className="action-edit" onClick={() => handleEdit(hotel)}> <CiEdit /> </button>
                     </td>
                   </tr>
                 ))}

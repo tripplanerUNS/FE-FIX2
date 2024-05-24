@@ -3,6 +3,8 @@ import axios from "axios";
 import Sidebar from "../../Component/Sidebar/Sidebar";
 import Topbar from "../../Component/Topbar/Topbar";
 import "./Pengguna.css";
+import { CiEdit } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
 
 function Pengguna() {
   const [penggunaList, setPenggunaList] = useState([]);
@@ -95,8 +97,8 @@ function Pengguna() {
                     <td>{pengguna.password}</td>
                     <td>{pengguna.no_tlpn}</td>
                     <td>
-                      <button className="action-agen-delete" onClick={() => handleDelete(pengguna.id)}>Delete</button>
-                      <button className="action-agen-edit" onClick={() => handleEdit(pengguna)}>Edit</button>
+                    <button className="action-delete" onClick={() => handleDelete(pengguna.id)}> <MdDelete /> </button>
+                      <button className="action-edit" onClick={() => handleEdit(pengguna)}> <CiEdit /> </button>
                     </td>
                   </tr>
                 ))}

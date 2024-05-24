@@ -3,6 +3,8 @@ import axios from "axios";
 import Sidebar from "../../Component/Sidebar/Sidebar";
 import Topbar from "../../Component/Topbar/Topbar";
 import "./Kuliner.css";
+import { CiEdit } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
 
 function Kuliner() {
   const [kulinerList, setKulinerList] = useState([]);
@@ -91,8 +93,8 @@ function Kuliner() {
                     <td>{kuliner.tutup}</td>
 
                     <td>
-                      <button className="action-delete" onClick={() => handleDelete(kuliner.id)}>Delete</button>
-                      <button className="action-edit" onClick={() => handleEdit(kuliner)}>Edit</button>
+                      <button className="action-delete" onClick={() => handleDelete(kuliner.id)}> <MdDelete /> </button>
+                      <button className="action-edit" onClick={() => handleEdit(kuliner)}> <CiEdit /> </button>
                     </td>
                   </tr>
                 ))}

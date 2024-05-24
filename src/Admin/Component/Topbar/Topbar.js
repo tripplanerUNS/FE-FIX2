@@ -40,9 +40,9 @@ function Topbar() {
         <span className="topbar-user-name">Admin</span>
         {showDropdown && (
           <div className="dropdown-menu">
-            <Link to="/profile" className="dropdown-item">Profile</Link>
-            <button className="dropdown-item" onClick={handleLogout}>Logout</button>
-          </div>
+          <Link to="/Profile" className="dropdown-item">Profile</Link>
+          <button className="dropdown-item" onClick={handleLogout}>Logout</button>
+        </div>
         )}
       </div>
       <div className='activity-topbar'>

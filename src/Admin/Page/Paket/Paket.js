@@ -6,6 +6,7 @@ import Topbar from "../../Component/Topbar/Topbar";
 import "./Paket.css";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
+import { FaPlus } from "react-icons/fa";
 
 function Paket() {
   const [paketList, setPaketList] = useState([]);
@@ -100,7 +101,7 @@ function Paket() {
       <Sidebar />
       <Topbar />
       <div className="paket-wrap">
-        <button className="add-button" onClick={() => setShowAddPopup(true)}>
+        <button className="add-button" onClick={() => setShowAddPopup(true)}> <FaPlus />
           Tambah Paket
           </button> {/* Add button for showing add popup */}
         <div className="container-paket">

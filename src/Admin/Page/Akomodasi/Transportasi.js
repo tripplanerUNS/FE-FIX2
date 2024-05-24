@@ -3,6 +3,8 @@ import axios from "axios";
 import Sidebar from "../../Component/Sidebar/Sidebar";
 import Topbar from "../../Component/Topbar/Topbar";
 import "./Transportasi.css";
+import { CiEdit } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
 
 function Transportasi() {
   const [transportasiList, setTransportasiList] = useState([]);
@@ -94,8 +96,8 @@ function Transportasi() {
                     <td>{transportasi.jam_kedatangan}</td>
                     <td>{transportasi.kota}</td>
                     <td>
-                      <button className="action-delete" onClick={() => handleDelete(transportasi.id)}>Delete</button>
-                      <button className="action-edit" onClick={() => handleEdit(transportasi)}>Edit</button>
+                    <button className="action-delete" onClick={() => handleDelete(transportasi.id)}> <MdDelete /> </button>
+                      <button className="action-edit" onClick={() => handleEdit(transportasi)}> <CiEdit /> </button>
                     </td>
                   </tr>
                 ))}
