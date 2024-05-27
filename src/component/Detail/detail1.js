@@ -1,103 +1,82 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './App.css';
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { FaRegThumbsUp } from "react-icons/fa";
-import { IoReceiptOutline } from "react-icons/io5";
-import Navbar from '../Navbar/Navbar';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import "./Detail1.css";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
-const App = () => {
-  const [hotels, setHotels] = useState([]);
-
-  useEffect(() => {
-    const fetchHotels = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/api/hotels`);
-        setHotels(response.data);
-      } catch (error) {
-        console.error("There was an error fetching the hotel data!", error);
-      }
-    };
-
-    fetchHotels();
-  }, []);
-
-  const [transportasi, setTransportasi] = useState(null);
-  const { id_transportasi } = useParams(); // Mengambil id dari URL
+function Detailpaket() {
+  const [detailData, setDetailData] = useState(null);
+  const { id } = useParams(); // Mengambil id dari URL
+  const navigate = useNavigate(); // Hook untuk navigasi
 
   useEffect(() => {
-    // Fungsi untuk mendapatkan data detail hotel dari API
-    const fetchHotelData = async () => {
+    const fetchDetailData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/auth/transport/${id_transportasi}`
+          `http://localhost:8000/api/auth/paket/${id}`
         ); // Menggunakan id dari URL
         console.log("Response data:", response.data); // Tambahkan console.log di sini
-        setTransportasi(response.data);
+        setDetailData(response.data);
       } catch (error) {
-        console.error("Error fetching hotel data:", error);
+        console.error("Error fetching paket data:", error);
       }
     };
 
-    fetchHotelData();
-  }, [id_transportasi]); // Menjalankan useEffect ketika id berubah
+    fetchDetailData();
+  }, [id]);
+
+  const handleBackClick = () => {
+    navigate("/PaketWisata"); // Menggunakan navigate untuk berpindah halaman
+  };
 
   return (
     <div>
-        <Navbar />
+      <Navbar />
 
-    <div className="app">
-      <h1>Detail</h1>
-      <div className="hotel-gallery">
-        {hotels.map((hotel, index) => (
-          <div key={index} className="hotel-item">
-            <div className='gambar-hotel'>
-            {hotel.images.map((image, imgIndex) => (
-              <img key={imgIndex} src={image} alt={`Hotel ${hotel.name}`} className="hotel-image" />
-            ))}
-            </div>
-            <div className='deskripsi-hotel'>
-            <h2>{hotel.name}</h2>
-            <p>{hotel.address}</p>
-            <p>{hotel.description}</p>
-            <h3>Fasilitas Utama</h3>
-            <ul>
-              {hotel.mainFacilities.map((facility, idx) => (
-                <li key={idx}>{facility}</li>
-              ))}
-            </ul>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="app">
-      <h1>Penerbangan yang Termasuk dalam Paket</h1>
-      <div className="flight-list">
-        {flights.map((flight, index) => (
-          <div key={index} className="flight-item">
-            <div className="flight-info">
-              <div className="flight-header">
-                <div className="airline">{flight.airline}</div>
-                <div className="flight-times">
-                  <div className="departure-time">{flight.departureTime} <span className="airport">{flight.from}</span></div>
-                  <div className="arrival-time">{flight.arrivalTime} <span className="airport">{flight.to}</span></div>
+      <div className="aon-destination-detail-wrap p-t110 aon-bg-white">
+        <div className="container">
+          <div className="aon-destination-detail-content">
+            <div className="destination-head">
+              {detailData ? (
+                <div key={detailData.id_paket} className="destination-card">
+                  <div className="card-content">
+                    <div className="card-header">
+                      <img
+                        src={`http://localhost:8000/${detailData.image}`}
+                        alt={`Paket Image`}
+                        className="paket-image"
+                      />
+                    </div>
+                    <div className="card-body">
+                      <div className="card-Judul">
+                        <h3 className="Judul-hotelss">{detailData.nama_paket}</h3>
+                      </div>
+                      <p>Deskripsi: {detailData.deskripsi}</p>
+                      <p>Transportasi: {detailData.transportasi} ({detailData.jenis_transportasi})</p>
+                      <p>Hotel: {detailData.hotel}</p>
+                      <p>Kota: {detailData.kota}</p>
+                      <p>Food: {detailData.food}</p>
+                      <p>Harga Paket: Rp {detailData.harga_paket}</p>
+                      <p>Harga Hotel: Rp {detailData.harga_hotel}</p>
+                      <p>Harga Transportasi: Rp {detailData.harga_transportasi}</p>
+                      <button type="button" onClick={handleBackClick}>
+                        Kembali ke Halaman Paket
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="flight-details">
-                <div className="price">Rp {flight.price.toLocaleString('id-ID')}/orang</div>
-                <div className="package-price">Harga paket: Rp {flight.packagePrice.toLocaleString('id-ID')}</div>
-                <div className="package-includes">{flight.packageIncludes}</div>
-                <div className="travel-duration">{flight.travelDuration}</div>
-              </div>
+              ) : (
+                <p>Loading...</p>
+              )}
             </div>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-      
-    </div>
+
+      <Footer />
     </div>
   );
-};
+}
 
-export default App;
+export default Detailpaket;

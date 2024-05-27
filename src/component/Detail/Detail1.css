@@ -1,0 +1,66 @@
+/* Detail.css */
+
+/* Gaya untuk wrap konten */
+.aon-destination-detail-wrap {
+  padding-top: 110px;
+  background-color: #f9f9f9;
+}
+
+/* Gaya untuk container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Gaya untuk konten detail */
+.aon-destination-detail-content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: 20px;
+}
+
+/* Gaya untuk header */
+.card-header img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Gaya untuk judul */
+.Judul-hotelss {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Gaya untuk deskripsi dan keterangan */
+.deskripsiii p {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+/* Gaya untuk tipe kamar dan fasilitas */
+.htkf p {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+/* Gaya untuk alamat dan tautan Google Maps */
+.alamat-kota p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.alamat-kota a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.alamat-kota a:hover {
+  text-decoration: underline;
+}

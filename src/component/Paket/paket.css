@@ -76,9 +76,13 @@ body {
   margin-bottom: 10px;
 }
 
+.gambar-paket{
+  margin-right: 10%;
+}
+
 .gambar-paket img {
-  width: 75%;
-  height: auto;
+  width: 50%;
+  height: 10%;
   border-radius: 10px;
 }
 
@@ -128,4 +132,8 @@ body {
   margin-right: 5px;
 }
 
+.pp {
+  font-size: 6px;  /* Makes the text smaller */
+  color: #808080;   /* Sets the text color to gray */
+}
 

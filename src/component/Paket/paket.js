@@ -86,7 +86,7 @@ function PaketWisata({
                           </div>
                           <div className="infoPaket">
                             <Link to={`/Detail/${paket.id_hotels}`}>
-                              <p>{paket.Hotel}</p>
+                              <p className="Hotelss">{paket.Hotel}</p>
                             </Link>
                             <p>{paket.Food}</p>
                           </div>
@@ -107,12 +107,13 @@ function PaketWisata({
                       </div>
                       <div className="paket-container">
                         <p>{paket.Harga_paket}</p>
-                        <p></p>
-                        <button className="detailPaket" onClick={handleSubmit}>
-                          reserved
-                        </button>
+                        <p className="pp">pesawat+hotel</p>
+                        <button className="Detailpaket">
+      <Link to={`/Detailpaket/${paket.id}`}>
+        Detail Paket
+      </Link>
+    </button>
                       </div>
-
                     </div>
                   </div>
                 </div>

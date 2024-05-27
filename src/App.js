@@ -18,6 +18,8 @@ import PaketWisata from "./component/Paket/paket";
 import Cobalogin from "./component/coba/Cobalogin";
 import Adminlogin from "./component/coba/Adminlogin";
 import DetailTransport from "./component/Detail/DetailTransport";
+import Detailpaket from "./component/Detail/detail1";
+
 
 function App() {
   const [origin, setOrigin] = useState("");
@@ -47,8 +49,9 @@ function App() {
         <Route path="/Detail/:id_hotels" element={<Detail />} />
         <Route path="/About" element={<About />} />
         <Route path="/PaketWisata" element={<PaketWisata dari={origin} destinasi={destination} bugdet={budget} tanggal={berangkat} jumlah={jumlah} setJumlah={setJumlah}/>} />
-        <Route path="/Detailpaket" element={<Detail />} />
+        <Route path="/Detailpaket/:id" element={<Detailpaket />} />
         <Route path="/Detailtransport/:id_transportasi" element={<DetailTransport/>} />
+        
       </Routes>
     </Router>
   );
