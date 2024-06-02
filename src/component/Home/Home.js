@@ -34,6 +34,7 @@ function Home({
           tanggal_berangkat: berangkat,
           budget: budget,
           jumlah_hari: jumlah,
+          jumlah_karyawan: karyawan,
         }
       );
 
@@ -167,6 +168,19 @@ function Home({
                     placeholder="Jumlah hari"
                     value={jumlah}
                     onChange={(e) => setJumlah(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="content-1">
+                <div className="form-group-date">
+                  <label>Jumlah karyawan</label>
+                  <input
+                    type="input"
+                    className="form-control"
+                    placeholder="Jumlah hari"
+                    value={karyawan}
+                    onChange={(e) => setKaryawan(e.target.value)}
                   />
                 </div>
               </div>

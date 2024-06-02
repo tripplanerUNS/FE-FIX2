@@ -7,16 +7,16 @@ import Footer from "../Footer/Footer";
 
 function DetailTransport() {
   const [transportasi, setTransportasi] = useState(null);
-  const { id_transportasi } = useParams(); // Mengambil id dari URL
+  const { id_transportasi } = useParams(); // Get id from URL
 
   useEffect(() => {
-    // Fungsi untuk mendapatkan data detail transportasi dari API
+    // Function to get transportation details from API
     const fetchTransportasiData = async () => {
       try {
         const response = await axios.get(
           `http://localhost:8000/api/auth/transport/${id_transportasi}`
-        ); // Menggunakan id dari URL
-        console.log("Response data:", response.data); // Tambahkan console.log di sini
+        ); // Use id from URL
+        console.log("Response data:", response.data); // Add console.log here
         setTransportasi(response.data);
       } catch (error) {
         console.error("Error fetching transportasi data:", error);
@@ -24,7 +24,7 @@ function DetailTransport() {
     };
 
     fetchTransportasiData();
-  }, [id_transportasi]); // Menjalankan useEffect ketika id berubah
+  }, [id_transportasi]); // Run useEffect when id changes
 
   return (
     <div>
@@ -50,26 +50,30 @@ function DetailTransport() {
                         </h3>
                       </div>
                       <span className="deskripsi">
-                        <span className="row">
-                        <p>Berangkat : {transportasi.berangkat}</p>
-                        <p>Jam Keberangkatan : {transportasi.jam_keberangkatan}</p>
-                        </span>
+                        <div className="row">
+                          <p>Berangkat: {transportasi.berangkat}</p>
+                          <p>Jam Keberangkatan: {transportasi.jam_keberangkatan}</p>
+                        </div>
 
-                        <span className="row">
-                        <p>Tujuan : {transportasi.tujuan}</p>
-                        <p>Jam Kedatangan : {transportasi.jam_kedatangan}</p>
-                        </span>
+                        <div className="row">
+                          <p>Tujuan: {transportasi.tujuan}</p>
+                          <p>Jam Kedatangan: {transportasi.jam_kedatangan}</p>
+                        </div>
                       </span>
-                      <span className="htkf">
-                        <p>Kelas : {transportasi.kelas}</p>
-                        <p>Harga : Rp {transportasi.harga}</p>
-                      </span>
-                      <span className="alamat-kota">
-                        <span className="row">
-                        <p>{transportasi.kota}</p>
-                        <p>{transportasi.lama_perjalanan}</p>
-                        </span>
-                      </span>
+                      <div className="htkf">
+                        <p>Kelas: {transportasi.kelas}</p>
+                        <p>Harga: Rp {transportasi.harga}</p>
+                      </div>
+                      <div className="alamat-kota">
+                        <div className="row">
+                          <p>{transportasi.kota}</p>
+                          <p>{transportasi.lama_perjalanan}</p>
+                        </div>
+                      </div>
+                      <div className="flight-actions">
+                        <button className="add-to-cart">Tambah ke keranjang</button>
+                        <button className="select">Pilih</button>
+                      </div>
                     </div>
                   </div>
                 </div>
