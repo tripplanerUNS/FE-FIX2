@@ -18,7 +18,7 @@ import PaketWisata from "./component/Paket/paket";
 import Cobalogin from "./component/coba/Cobalogin";
 import Adminlogin from "./component/coba/Adminlogin";
 import DetailTransport from "./component/Detail/DetailTransport";
-import Detailpaket from "./component/Detail/detail1";
+import Detailpaket from "./component/Detail/detailLengkap";
 
 
 function App() {

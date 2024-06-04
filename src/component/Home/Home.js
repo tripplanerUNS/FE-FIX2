@@ -34,7 +34,7 @@ function Home({
           tanggal_berangkat: berangkat,
           budget: budget,
           jumlah_hari: jumlah,
-          jumlah_karyawan: karyawan,
+         // jumlah_karyawan: karyawan,
         }
       );
 
@@ -176,11 +176,11 @@ function Home({
                 <div className="form-group-date">
                   <label>Jumlah karyawan</label>
                   <input
-                    type="input"
-                    className="form-control"
-                    placeholder="Jumlah hari"
-                    value={karyawan}
-                    onChange={(e) => setKaryawan(e.target.value)}
+                   // type="input"
+                    //className="form-control"
+                    //placeholder="Jumlah hari"
+                    //value={karyawan}
+                    //onChange={(e) => setKaryawan(e.target.value)}
                   />
                 </div>
               </div>
