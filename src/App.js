@@ -19,6 +19,7 @@ import Cobalogin from "./component/coba/Cobalogin";
 import Adminlogin from "./component/coba/Adminlogin";
 import DetailTransport from "./component/Detail/DetailTransport";
 import Detailpaket from "./component/Detail/detailLengkap";
+import Transaksi from "./component/Transaksi/transaksi";
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
         <Route path="/PaketWisata" element={<PaketWisata dari={origin} destinasi={destination} bugdet={budget} tanggal={berangkat} jumlah={jumlah} setJumlah={setJumlah}/>} />
         <Route path="/Detailpaket/:id" element={<Detailpaket />} />
         <Route path="/Detailtransport/:id_transportasi" element={<DetailTransport/>} />
+        <Route path="/Transaksi" element={<Transaksi />} />
         
       </Routes>
     </Router>
