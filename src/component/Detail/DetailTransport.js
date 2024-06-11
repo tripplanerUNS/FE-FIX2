@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "./Detail.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import "./Detail.css";
 
 function DetailTransport() {
   const [transportasi, setTransportasi] = useState(null);
@@ -27,64 +27,45 @@ function DetailTransport() {
   }, [id_transportasi]); // Run useEffect when id changes
 
   return (
-    <div>
+    <div className="container">
       <Navbar />
-
-      <div className="aon-destination-detail-wrap p-t110 aon-bg-white">
-        <div className="container">
-          <div className="aon-destination-detail-content">
-            <div className="destination-head">
-              {transportasi ? (
-                <div
-                  key={transportasi.id_transportasi}
-                  className="destination-card"
-                >
-                  <div className="card-content">
-                    <div className="card-header">
-                      <img src={transportasi.image} alt={`Icon`} />
-                    </div>
-                    <div className="card-body">
-                      <div className="card-Judul">
-                        <h3 className="Judul-hotelss">
-                          {transportasi.nama_transportasi}
-                        </h3>
-                      </div>
-                      <span className="deskripsi">
-                        <div className="row">
-                          <p>Berangkat: {transportasi.berangkat}</p>
-                          <p>Jam Keberangkatan: {transportasi.jam_keberangkatan}</p>
-                        </div>
-
-                        <div className="row">
-                          <p>Tujuan: {transportasi.tujuan}</p>
-                          <p>Jam Kedatangan: {transportasi.jam_kedatangan}</p>
-                        </div>
-                      </span>
-                      <div className="htkf">
-                        <p>Kelas: {transportasi.kelas}</p>
-                        <p>Harga: Rp {transportasi.harga}</p>
-                      </div>
-                      <div className="alamat-kota">
-                        <div className="row">
-                          <p>{transportasi.kota}</p>
-                          <p>{transportasi.lama_perjalanan}</p>
-                        </div>
-                      </div>
-                      <div className="flight-actions">
-                        <button className="add-to-cart">Tambah ke keranjang</button>
-                        <button className="select">Pilih</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <p>Loading...</p>
-              )}
+      <div className="detail-transport">
+        {transportasi ? (
+          <div className="detail-card">
+            <img src={transportasi.image} alt="Transport" className="image" />
+            <h2>{transportasi.nama_transportasi}</h2>
+            <div className="rating">
+              <span>⭐⭐⭐⭐⭐</span>
+              <p>Transportasi</p>
             </div>
+            <div className="schedule">
+              <div className="schedule-header">
+                <span>{transportasi.nama_transportasi}</span>
+                <div className="time">
+                  <span>{transportasi.jam_keberangkatan}</span>
+                  <span>→</span>
+                  <span>{transportasi.jam_kedatangan}</span>
+                </div>
+              </div>
+              <div className="schedule-details">
+                <div className="schedule-item">
+                  <span>{transportasi.berangkat}</span>
+                  <span> - </span>
+                  <span>{transportasi.tujuan}</span>
+                </div>
+                <div className="schedule-item">
+                  <span>{transportasi.kelas}</span>
+                  <span>{transportasi.harga}</span>
+                  <span>{transportasi.lama_perjalanan}</span>
+                </div>
+              </div>
+            </div>
+            <button className="back-button">Back to Package</button>
           </div>
-        </div>
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
-
       <Footer />
     </div>
   );

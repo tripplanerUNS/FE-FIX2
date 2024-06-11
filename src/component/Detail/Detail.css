@@ -1,163 +1,45 @@
-/* Detail.css */
-
-.aon-destination-detail-wrap {
-  padding-top: 110px; /* Sesuaikan dengan kebutuhan */
-  background-color: #fff; /* Sesuaikan dengan kebutuhan */
+/* General styles */
+body {
+  background-color: #f7f2f2;
+  font-family: Arial, sans-serif;
 }
 
-.container {
-  max-width: 1200px; /* Sesuaikan dengan kebutuhan */
-  margin: 0 auto; /* Center the container */
-  padding: 0 15px; /* Sesuaikan dengan kebutuhan */
-}
-
-.destination-card {
-  border: 1px solid #ccc; /* Sesuaikan dengan kebutuhan */
-  border-radius: 8px; /* Sesuaikan dengan kebutuhan */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sesuaikan dengan kebutuhan */
-  margin-bottom: 20px; /* Sesuaikan dengan kebutuhan */
-  overflow: hidden; /* Hindari gambar yang keluar dari kotak */
-}
-
-.card-content {
-  padding: 20px; /* Sesuaikan dengan kebutuhan */
-}
-
-.card-header img {
-  width: 100%; /* Sesuaikan dengan kebutuhan */
-  height: auto; /* Sesuaikan dengan kebutuhan */
-  border-radius: 8px 8px 0 0; /* Sesuaikan dengan kebutuhan */
-}
-
-.card-body h3 {
-  margin-top: 0; /* Hapus margin atas */
-}
-
-
-/* Gaya untuk kontainer gambar hotel */
-/* Detail.css */
-
-/* Gaya untuk kontainer gambar hotel */
-/* Gaya untuk wadah gambar hotel */
-.hotel-images-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Menggunakan auto-fit untuk memadukan sebanyak mungkin item dalam satu baris */
-  gap: 10px; /* Jarak antara gambar */
-  justify-content: center; /* Pusatkan gambar di dalam kontainer */
-  margin-bottom: 30px;
-}
-
-/* Gaya untuk gambar hotel */
-.hotel-image {
-  width: 100%;
-  aspect-ratio: 16/9; /* Menjaga rasio aspek 16:9 untuk gambar */
-  object-fit: cover;
-  border-radius: 8px; /* Tambahkan sudut bulat untuk gambar */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek melayang */
-  transition: transform 0.3s ease; /* Tambahkan efek transisi saat dihover */
-}
-
-/* Efek hover untuk gambar hotel */
-.hotel-image:hover {
-  transform: scale(1.05); /* Perbesar gambar saat dihover */
-}
-
-
-/* Gaya untuk judul hotel */
-/* Gaya langsung untuk judul hotel */
-h3.Judul-hotelss {
-  font-size: 24px; /* Atur ukuran font */
-  color: #333; /* Atur warna teks */
-  font-weight: bold; /* Atur ketebalan teks */
-  margin-bottom: 20px; /* Atur margin bawah */
-}
-
-
-.card-body p {
-  font-size: 18px;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-/* Gaya untuk rating hotel */
-.ratinggg p {
-  font-size: 16px;
-  color: #777;
-  margin-bottom: 5px;
-}
-
-/* Gaya untuk deskripsi hotel */
-.deskripsiii p {
-  font-size: 16px;
-  color: #777;
-  margin-bottom: 5px;
-}
-
-/* Gaya untuk tipe kamar dan fasilitas hotel */
-.htkf p {
-  font-size: 16px;
-  color: #777;
-  margin-bottom: 5px;
-}
-
-/* Gaya untuk alamat hotel */
-.alamat-kota p {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-/* Gaya untuk tautan Google Maps */
-.alamat-kota a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-/* Efek hover untuk tautan Google Maps */
-.alamat-kota a:hover {
-  text-decoration: underline;
-}
-
-/* Efek hover untuk deskripsi hotel */
-.deskripsiii p:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-/* Efek hover untuk harga hotel */
-.card-body p:first-of-type:hover {
-  color: #ff5733;
-  cursor: pointer;
-}
-
-
-/* Detail.css transport */
-
-.aon-destination-detail-wrap {
-  padding-top: 110px;
-  background-color: white;
-}
-
+/* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.destination-head {
+/* Destination detail wrap */
+.aon-destination-detail-wrap {
+  padding-top: 110px;
+  background-color: white;
+}
+
+.aon-destination-detail-wrap.loaded {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.aon-destination-detail-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+}
+
+.destination-head {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .destination-card {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 20px 0;
   background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px 0;
 }
 
 .card-content {
@@ -165,8 +47,22 @@ h3.Judul-hotelss {
   flex-direction: column;
 }
 
-.card-header img {
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.hotel-images-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.hotel-image {
   width: 100%;
+  height: auto;
   border-radius: 8px;
 }
 
@@ -174,40 +70,156 @@ h3.Judul-hotelss {
   padding: 16px;
 }
 
-.card-Judul h3 {
+.card-title {
+  margin-bottom: 16px;
+}
+
+.hotel-title {
   font-size: 24px;
-  margin-bottom: 16px;
-}
-
-.deskripsi, .htkf, .alamat-kota {
-  margin-bottom: 16px;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-p {
   margin: 0;
 }
 
-.flight-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+.rating,
+.description,
+.room-type-facilities,
+.location-city {
+  margin-bottom: 10px;
 }
 
-.add-to-cart, .select {
-  background-color: #007bff;
+button {
+  background-color: #ff7e67;
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
+  float: right;
 }
 
-.add-to-cart:hover, .select:hover {
+button:hover {
+  background-color: #ff6b53;
+}
+
+/* Footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Specific styles for Detail component */
+.detail-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 80px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #000;
+}
+
+.detail-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.detail-card h2 {
+  margin-bottom: 10px;
+}
+
+.rating {
+  margin: 20px 0;
+}
+
+.schedule {
+  margin-top: 20px;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.schedule-details {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+}
+
+.schedule-item:first-child {
+  border-top: none;
+}
+
+.back-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.back-button:hover {
   background-color: #0056b3;
+}
+
+/* Styling for the images section */
+.hotel-images-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.hotel-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Container untuk No Image Available */
+.no-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Sesuaikan tinggi sesuai kebutuhan */
+  border: 2px dashed #ccc; /* Garis putus-putus */
+  border-radius: 8px; /* Sudut yang melengkung */
+  margin-bottom: 20px; /* Jarak antara kontainer dengan konten lainnya */
+}
+
+/* Teks untuk No Image Available */
+.no-image-text {
+  font-size: 16px;
+  color: #777; /* Warna abu-abu untuk teks */
+}
+
+/* Container untuk Monoloog Hotel Surabaya */
+.monolog-hotels-solo-container {
+  margin-top: 40px; /* Jarak atas kontainer dari konten sebelumnya */
+  padding: 20px; /* Padding kontainer */
+  background-color: #fff; /* Warna latar belakang putih */
+  border-radius: 10px; /* Sudut yang melengkung */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+}
+
+/* Teks untuk Monoloog Hotel Surabaya */
+.monolog-hotels-solo-title {
+  font-size: 24px; /* Ukuran font */
+  margin-bottom: 10px; /* Jarak bawah teks */
 }

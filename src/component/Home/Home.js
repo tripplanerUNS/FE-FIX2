@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Baliawesome1 from "../../Assets/BALI - awesome waterfalls near UBUD1.jpeg";
 
 function Home({
-  origin,setOrigin,destination, setDestination, budget, setBudget, berangkat, setBerangkat, jumlah, setJumlah
+  origin,setOrigin,destination, setDestination, budget, setBudget, berangkat, setBerangkat, jumlah, setJumlah, jumlah_karyawan, setJumlah_karyawan
 }) {
   // const [origin, setOrigin] = useState("");
   // const [destination, setDestination] = useState("");
@@ -27,14 +27,14 @@ function Home({
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:8000/api/auth/paket/budgett`,
+        `http://localhost:8000/api/auth/paket/budget`,
         {
           dari: origin,
           tujuan: destination,
           tanggal_berangkat: berangkat,
           budget: budget,
           jumlah_hari: jumlah,
-         // jumlah_karyawan: karyawan,
+          //jumlah_karyawan: karyawan,
         }
       );
 
@@ -87,7 +87,7 @@ function Home({
   return (
     <div className="body">
       <Navbar />
-      <div className="background" style={{ backgroundImage: `url(${BG})` }}>
+      <div className="background" style={{ backgroundImage: `url(${BG}) `}}>
         <div className="judul-konten">
           <h1>
             Rencanakan Perjalanan <br /> anda dan dapatkan harga termurah
@@ -171,22 +171,21 @@ function Home({
                   />
                 </div>
               </div>
-
-              <div className="content-1">
-                <div className="form-group-date">
-                  <label>Jumlah karyawan</label>
-                  <input
-                   // type="input"
-                    //className="form-control"
-                    //placeholder="Jumlah hari"
-                    //value={karyawan}
-                    //onChange={(e) => setKaryawan(e.target.value)}
-                  />
-                </div>
-              </div>
             </div>
 
             <div className="row">
+            <div className="content-1">
+                <div className="form-group-date">
+                  <label>Jumlah karyawan</label>
+                  <input
+                   //type="input"
+                   //className="form-control"
+                   //placeholder="Jumlah hari"
+                   //alue={karyawan}
+                   //onChange={(e) => setKaryawan(e.target.value)}
+                  />
+                </div>
+              </div>
               <div className="content-1">
                 <div className="form-group-budget">
                   <label className="budget">Budget</label>
@@ -199,7 +198,8 @@ function Home({
                   />
                 </div>
               </div>
-              {errorMessage && <p className="error-message">{errorMessage}</p>}
+            </div>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
               {loading && (
                 <button type="button" onClick={handleSubmit}>
                   Loading...
@@ -210,7 +210,6 @@ function Home({
                   Search
                 </button>
               )}
-            </div>
           </div>
         </div>
       )}

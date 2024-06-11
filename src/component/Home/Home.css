@@ -1,9 +1,9 @@
-/* Home.css */
-
+/* General body styling */
 .body {
   font-family: Cambria, serif; /* Mengubah font menjadi Cambria */
 }
 
+/* Main container styling */
 .containerHome {
   position: relative;
   top: -50px; /* Sesuaikan dengan jarak yang diinginkan */
@@ -13,8 +13,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk container */
 }
 
-
-
+/* Background styling */
 .background {
   background-size: cover;
   background-position: center;
@@ -25,12 +24,14 @@
   align-items: center;
 }
 
+/* Title styling */
 .judul-konten {
   text-align: center;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Efek bayangan teks */
 }
 
+/* Button styling */
 .button {
   margin-top: 20px;
 }
@@ -41,6 +42,7 @@
   border-radius: 10px;
 }
 
+/* Submit button styling */
 .SubmitPaket {
   background-color: #3784f8;
   color: #fff;
@@ -51,10 +53,15 @@
   border-radius: 5px;
 }
 
+/* Row styling */
 .row {
-  display: flex; /* Mengatur tata letak menjadi flexbox */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Optional: Adds space between the items */
+  align-items: center; /* Align items vertically in the center */
 }
 
+/* Search button styling */
 .searchpaket {
   background-color: #3784f8;
   color: #fff;
@@ -69,20 +76,12 @@
   background-color: #205dad;
 }
 
-
-/* button:hover {
-  background-color: #205dad;
-} */
-
-/* Home.css */
-
-/* Style popup */
+/* Popup styling */
 .popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   justify-content: center;
   align-items: center;
   z-index: 999; /* Pastikan popup selalu berada di atas konten */
@@ -90,7 +89,7 @@
 
 .popup-content {
   background-color: #fefefe;
-  padding: 30px;
+  padding: 40px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
   position: relative; /* Make close button position absolute relative to popup-content */
@@ -114,7 +113,7 @@
   }
 }
 
-
+/* Close button styling */
 .close {
   position: absolute;
   top: 10px;
@@ -122,11 +121,7 @@
   cursor: pointer;
 }
 
-/* Home.css */
-
-/* Home.css */
-
-/* Menengahkan judul konten */
+/* Centered title content */
 .judul-content {
   text-align: center;
   margin-left: 40px;
@@ -138,7 +133,7 @@
   justify-content: space-between; /* Konten berada di samping tanpa jarak */
 }
 
-/* Konten */
+/* Content section styling */
 .content-1 {
   flex: 1; /* Konten memenuhi ruang yang tersedia */
   display: flex;
@@ -146,20 +141,20 @@
   margin-right: 5px;
 }
 
-/* Label */
+/* Label styling */
 label {
   margin-bottom: 5px; /* Jarak antara label dan input */
   font-size: 13px;
 }
 
-/* Form group */
+/* Form group styling */
 .form-group {
   position: relative;
   display: flex; /* Menjadikan form-group menjadi flex container */
   flex-direction: column; /* Menjadikan form-group menjadi flex column */
 }
 
-/* Ikon */
+/* Icon styling */
 .icon {
   align-self: flex-start; /* Posisi ikon di bagian atas */
   margin-bottom: 5px; /* Jarak antara ikon dan input */
@@ -167,15 +162,15 @@ label {
   margin-top: 18px; /* Sesuaikan nilai margin-top sesuai kebutuhan */
 }
 
-/* Input */
+/* Input styling */
 .form-control {
   flex: 1; /* Input mengisi sisa ruang yang tersedia */
-  padding: 6px; /* Padding     untuk memberi jarak antar huruf dengan border*/
+  padding: 6px; /* Padding untuk memberi jarak antar huruf dengan border */
   border: 2px solid #ccc;
   border-radius: 4px;
 }
 
-/* Fungsi swap */
+/* Swap functionality */
 .form-group:first-child .form-control {
   border-radius: 5px 0 0 5px;
 }
@@ -190,109 +185,146 @@ label {
   color: #555; /* Warna ikon */
 }
 
-/* Animasi ikon saat dihover */
+/* Icon hover animation */
 .icon:hover svg {
   transform: scale(1.2); /* Perbesar ikon saat dihover */
 }
 
+/* Date input styling */
 .form-group-date {
-    position: relative;
-    display: flex; /* Menjadikan form-group menjadi flex container */
-    flex-direction: column; /* Menjadikan form-group menjadi flex column */
-    margin-left: 50px;
-  }
+  position: relative;
+  display: flex; /* Menjadikan form-group menjadi flex container */
+  flex-direction: column; /* Menjadikan form-group menjadi flex column */
+  margin-left: 50px;
+}
 
-  .date-control {
-    flex: 1; /* Input mengisi sisa ruang yang tersedia */
-    padding: 5px; /* Padding     untuk memberi jarak antar huruf dengan border*/
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-  }
+.date-control {
+  flex: 1; /* Input mengisi sisa ruang yang tersedia */
+  padding: 5px; /* Padding untuk memberi jarak antar huruf dengan border */
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
 
+/* Second content section styling */
+.content-2 {
+  margin-top: 100px; /* Jarak antara konten-1 dan konten-2 */
+  margin-right: auto; /* Menengahkan konten-2 */
+  margin-left: auto; /* Menengahkan konten-2 */
+}
 
+/* Budget input styling */
+.form-group-budget {
+  position: relative;
+  display: flex; /* Menjadikan form-group menjadi flex container */
+  flex-direction: column; /* Menjadikan form-group menjadi flex column */
+  margin-left: 50px;
+}
 
-  .content-2 {
-    margin-top: 100px; /* Jarak antara konten-1 dan konten-2 */
-    margin-right: auto; /* Menengahkan konten-2 */
-    margin-left: auto; /* Menengahkan konten-2 */
+.budget-control {
+  flex: 1; /* Input mengisi sisa ruang yang tersedia */
+  padding: 6px; /* Padding untuk memberi jarak antar huruf dengan border */
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  width: 25%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.budget {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Invite section styling */
+.content-invite {
+  margin-left: 46%; /* Menggeser ke tengah */
+  margin-right: auto; /* Menggeser ke tengah */
+  margin-top: 3%;
+  width: fit-content; /* Menyesuaikan lebar dengan kontennya */
+}
+
+/* Help section styling */
+.body-bantuan {
+  margin-top: 10%; /* Atur margin atas sesuai kebutuhan */
+}
+
+.wrap-bantuan {
+  text-align: center; /* Pusatkan teks */
+}
+
+.judul-bantuan {
+  font-size: 24px; /* Atur ukuran font judul */
+  color: #333; /* Atur warna teks */
+  margin-bottom: 30px; /* Atur margin bawah sesuai kebutuhan */
+  margin-top: 70px;
+}
+
+.content-bantuan {
+  display: flex; /* Atur tata letak konten menjadi flex */
+  justify-content: center; /* Pusatkan konten secara horizontal */
+}
+
+.content-bantuan-vidio {
+  position: relative;
+  width: 80%; 
+  height: 0;
+  padding-bottom: 45%; /* Perbandingan aspek 16:9 untuk video */
+  margin-bottom: 30px; 
+  margin-left: 10%;
+}
+
+.content-bantuan-vidio iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* Button invite styling */
+.button-invite {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container-content, .content-bantuan {
+    flex-direction: column;
+    align-items: center;
   }
   
-  .form-group-budget {
-    position: relative;
-    display: flex; /* Menjadikan form-group menjadi flex container */
-    flex-direction: column; /* Menjadikan form-group menjadi flex column */
-    margin-left: 50px;
+  .content-1, .content-2, .content-invite, .form-group-date, .form-group-budget {
+    margin: 0 20px;
+    width: 100%;
   }
   
   .budget-control {
-    flex: 1; /* Input mengisi sisa ruang yang tersedia */
-    padding: 6px; /* Padding     untuk memberi jarak antar huruf dengan border*/
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    width: 25%;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  .budget{
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .content-invite {
-    margin-left: 46%; /* Menggeser ke tengah */
-    margin-right: auto; /* Menggeser ke tengah */
-    margin-top: 3%;
-    width: fit-content; /* Menyesuaikan lebar dengan kontennya */
-    
-  }
-
-  /* bantuan */
-
-  .body-bantuan {
-    margin-top: 10%; /* Atur margin atas sesuai kebutuhan */
-  }
-  
-  .wrap-bantuan {
-    text-align: center; /* Pusatkan teks */
-  }
-  
-  .judul-bantuan {
-    font-size: 24px; /* Atur ukuran font judul */
-    color: #333; /* Atur warna teks */
-    margin-bottom: 30px; /* Atur margin bawah sesuai kebutuhan */
-    margin-top: 70px;
-  }
-  
-  .content-bantuan {
-    display: flex; /* Atur tata letak konten menjadi flex */
-    justify-content: center; /* Pusatkan konten secara horizontal */
+    width: 100%;
   }
   
   .content-bantuan-vidio {
-    position: relative;
-    width: 80%; 
-    height: 90%; 
-    margin-bottom: 30%; /* Perbandingan aspek 16:9 untuk video */
-    margin-left: 20%;
-    /* overflow: hidden; */
+    width: 100%;
+    padding-bottom: 56.25%; /* Adjust aspect ratio for responsiveness */
   }
-  
-  .content-bantuan-vidio iframe {
-    position: absolute;
-    top: 0;
-    left: 15%;
-    /* width: 70%;
-    height: 50%; */
-    border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+  .judul-content {
+    margin-left: 0;
   }
 
   .button-invite {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-block;
+    padding: 8px;
   }
+  
+  .judul-bantuan {
+    font-size: 20px;
+  }
+}

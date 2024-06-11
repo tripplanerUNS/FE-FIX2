@@ -24,7 +24,7 @@ function PaketWisata({
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          `http://localhost:8000/api/auth/paket/budgett`,
+          `http://localhost:8000/api/auth/paket/budget`,
           {
             dari: dari,
             tujuan: destinasi,
@@ -95,7 +95,7 @@ function PaketWisata({
                       <div className="column">
                         <div>
                           {" "}
-                          <FaPlane /> Penerbangan{" "}
+                          <FaPlane /> Transportasi{" "}
                         </div>
                         <div className="transportasi">
                           <p>{paket.jenis_transportasi}</p>
