@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "./Detail.css";
@@ -8,6 +8,7 @@ import "./Detail.css";
 function DetailTransport() {
   const [transportasi, setTransportasi] = useState(null);
   const { id_transportasi } = useParams(); // Get id from URL
+  const navigate = useNavigate(); // Use navigate for navigation
 
   useEffect(() => {
     // Function to get transportation details from API
@@ -25,6 +26,10 @@ function DetailTransport() {
 
     fetchTransportasiData();
   }, [id_transportasi]); // Run useEffect when id changes
+
+  const handleBackClick = () => {
+    navigate(-1); // Navigate back to the previous page
+  };
 
   return (
     <div className="container">
@@ -60,7 +65,9 @@ function DetailTransport() {
                 </div>
               </div>
             </div>
-            <button className="back-button">Back to Package</button>
+            <button type="button" onClick={handleBackClick}>
+              Kembali ke Halaman Paket
+            </button>
           </div>
         ) : (
           <p>Loading...</p>

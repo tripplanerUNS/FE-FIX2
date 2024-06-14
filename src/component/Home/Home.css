@@ -1,6 +1,8 @@
 /* General body styling */
 .body {
   font-family: Cambria, serif; /* Mengubah font menjadi Cambria */
+  background-color: #ffffff;
+  
 }
 
 /* Main container styling */

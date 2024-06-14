@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Baliawesome1 from "../../Assets/BALI - awesome waterfalls near UBUD1.jpeg";
 
 function Home({
-  origin,setOrigin,destination, setDestination, budget, setBudget, berangkat, setBerangkat, jumlah, setJumlah, jumlah_karyawan, setJumlah_karyawan
+  origin, setOrigin, destination, setDestination, budget, setBudget, berangkat, setBerangkat, jumlah, setJumlah, jumlahKaryawan, setJumlahKaryawan
 }) {
   // const [origin, setOrigin] = useState("");
   // const [destination, setDestination] = useState("");
@@ -34,7 +34,7 @@ function Home({
           tanggal_berangkat: berangkat,
           budget: budget,
           jumlah_hari: jumlah,
-          //jumlah_karyawan: karyawan,
+          jumlah_employee: jumlahKaryawan,
         }
       );
 
@@ -178,11 +178,11 @@ function Home({
                 <div className="form-group-date">
                   <label>Jumlah karyawan</label>
                   <input
-                   //type="input"
-                   //className="form-control"
-                   //placeholder="Jumlah hari"
-                   //alue={karyawan}
-                   //onChange={(e) => setKaryawan(e.target.value)}
+                   type="input"
+                   className="form-control"
+                   placeholder="Jumlah Karyawan"
+                   value={jumlahKaryawan}
+                   onChange={(e) => setJumlahKaryawan(e.target.value)}
                   />
                 </div>
               </div>

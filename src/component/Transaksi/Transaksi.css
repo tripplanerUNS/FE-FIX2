@@ -50,16 +50,17 @@
   }
   
   button[type="submit"] {
-    background-color: #f44336;
+    background-color: #353dd8;
     color: white;
     padding: 10px;
+    margin-top: 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
   button[type="submit"]:hover {
-    background-color: #d32f2f;
+    background-color: #353dd8;
   }
   
   footer {

@@ -1,66 +1,95 @@
-/* Detail.css */
-
-/* Gaya untuk wrap konten */
-.aon-destination-detail-wrap {
-  padding-top: 110px;
-  background-color: #f9f9f9;
-}
-
-/* Gaya untuk container */
-.container {
-  max-width: 1200px;
+.container-detail-paket {
+  max-width: 800px;
   margin: 0 auto;
+  padding: 20px;
+  margin-top: 10%;
 }
 
-/* Gaya untuk konten detail */
-.aon-destination-detail-content {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin-top: 20px;
+.hero-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  margin-bottom: 20px;
 }
 
-/* Gaya untuk header */
-.card-header img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+.package-info {
+  margin-bottom: 20px;
 }
 
-/* Gaya untuk judul */
-.Judul-hotelss {
-  font-size: 24px;
-  color: #333;
+.package-info h1 {
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
-/* Gaya untuk deskripsi dan keterangan */
-.deskripsiii p {
-  font-size: 16px;
-  color: #777;
-  margin-bottom: 5px;
+.package-info h2 {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 10px;
 }
 
-/* Gaya untuk tipe kamar dan fasilitas */
-.htkf p {
-  font-size: 16px;
-  color: #777;
-  margin-bottom: 5px;
+.package-info p {
+  line-height: 1.6;
 }
 
-/* Gaya untuk alamat dan tautan Google Maps */
-.alamat-kota p {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 5px;
+.details {
+  margin-bottom: 20px;
 }
 
-.alamat-kota a {
-  color: #007bff;
+.flight-info, .hotel-info, .address-info {
+  border: 2px solid #000;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.flight-info h3, .hotel-info h4, .address-info p {
+  margin-bottom: 10px;
+}
+
+.flight-details, .hotel-details {
+  margin-top: 10px;
+}
+
+.hotel-info img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.hotel-details {
+  margin-top: 10px;
+}
+
+.hotel-details a,
+.address-info a {
   text-decoration: none;
+  color: #007bff;
 }
 
-.alamat-kota a:hover {
+.hotel-details a:hover,
+.address-info a:hover {
   text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer .price {
+  text-align: right; /* Geser teks ke kanan */
+  margin-bottom: 10px;
+}
+
+.footer button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  background-color: #0056b3;
 }

@@ -75,6 +75,10 @@ function Detail() {
                 <div className="hotel-description">{hotel && hotel.deskripsi}</div>
               </div>
               
+              {/* Deskripsi tambahan */}
+              <div className="additional-description">
+                Surabaya adalah tempat indah.
+              </div>
 
               {/* Detail hotel */}
               {hotel ? (
@@ -139,7 +143,7 @@ function Detail() {
           </div>
         </div>
       </div>
-      <Footer />
+     
     </div>
   );
 }

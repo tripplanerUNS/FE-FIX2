@@ -1,51 +1,57 @@
 /* paket.css */
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
-.navbar {
-  background-color: #333;
-  padding: 10px;
-  color: white;
-  text-align: center;
-}
-
 .rowPaket {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin-top: 20px;
+  padding: 20px;
+  background-color: #FFFF;
 }
 
 .content-paket {
-  width: 80%;
-  padding: 70px;
-  border-radius: 8px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Animasi untuk muncul dari bawah ke atas */
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kelas untuk menerapkan animasi */
+.slide-up-enter {
+  animation: slide-up 1s ease-out;
 }
 
 .paket {
-  border: 1px solid #ddd;
+  border: 1px solid #000; /* Garis tepi hitam */
   border-radius: 8px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  overflow: hidden;
-  background-color: #fafafa;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .judul-paket {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
   font-size: 18px;
-  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center; /* Judul di tengah */
+  border-bottom: 2px solid #000; /* Garis bawah hitam */
+  padding-bottom: 10px; /* Ruang di bawah judul */
 }
 
 .list-paket {
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrap-list-paket {
@@ -53,87 +59,174 @@ body {
   flex-direction: column;
 }
 
-.paketw {
-  display: flex;
-  flex-direction: column;
-}
-
-.row {
+.paketw .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
 
-.hotel, .transportasi {
-  width: 48%;
-  padding: 10px;
+.hotel, .column {
+  flex: 1;
+  margin-right: 20px;
 }
 
-.hotel div, .transportasi div {
+.hotel .title, .column .title {
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-.gambar-paket{
-  margin-right: 10%;
+  display: flex;
+  align-items: center;
 }
 
 .gambar-paket img {
-  width: 50%;
-  height: 10%;
-  border-radius: 10px;
+  width: 150px;
+  height: 100px;
+  border-radius: 8px;
+  margin-right: 20px;
 }
 
 .infoPaket {
-  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.infoPaket p {
+.infoPaket .Hotelss {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.transportasi p {
   margin: 5px 0;
-  
 }
 
-/* Styling for the container div */
 .paket-container {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: flex-start; /* Align children to the start of the container */
-  padding: 10px; /* Add some padding for better spacing */
-  margin: 10px 0; /* Add some margin for spacing between elements */
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-/* Styling for the price paragraph */
 .paket-container p {
-  margin-bottom: 10px; /* Add some space below the price */
-  font-size: 18px; /* Adjust font size */
-  font-weight: bold; /* Make the price bold */
+  margin: 5px 0;
 }
 
-/* Styling for the button */
-.detailPaket {
-  padding: 10px 20px; /* Add padding inside the button */
-  font-size: 16px; /* Adjust font size */
-  background-color: #007BFF; /* Button background color */
-  color: white; /* Button text color */
-  border: none; /* Remove default border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
+.paket-container .pp {
+  font-size: 14px;
+  color: #666;
 }
 
-.detailPaket:hover {
-  background-color: #0056b3; /* Darken background on hover */
+.Detailpaket {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-
-.icon {
-  font-size: 24px;
-  margin-right: 5px;
+.Detailpaket a {
+  color: white;
+  text-decoration: none;
 }
 
-.pp {
-  font-size: 6px;  /* Makes the text smaller */
-  color: #808080;   /* Sets the text color to gray */
+.Detailpaket:hover {
+  background-color: #0056b3;
 }
+
+.judul-kota {
+  margin: 90px 60px 30px 0px;
+  font-size: 21px; /* Increased font size for better readability */
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif; /* Changed to Roboto font */
+  color: #2c3e50; /* A nice dark shade for better contrast */
+}
+
+.wrap-drop-down-detail {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.drop-down-detail {
+  background-color: #f9f9f9; /* Warna latar belakang abu-abu terang */
+  border: 1px solid #ddd; /* Batas abu-abu terang */
+  border-radius: 8px; /* Sudut melengkung */
+  padding: 15px; /* Padding dalam */
+  margin-top: 10px; /* Jarak di atas kontainer */
+  width: 99%; /* Lebar 99% */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Judul-detail-paket1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50; /* Warna gelap untuk kontras yang lebih baik */
+  margin-bottom: 10px;
+  text-align: center; /* Tengah judul */
+  border-bottom: 1px solid #ddd; /* Garis bawah abu-abu terang */
+  padding-bottom: 10px; /* Ruang di bawah judul */
+}
+
+.drop-down-detail p {
+  font-size: 16px; /* Ukuran font yang mudah dibaca */
+  color: #34495e; /* Warna abu-abu gelap untuk teks */
+  margin: 8px 0; /* Jarak antar paragraf */
+  line-height: 1.5; /* Spasi baris yang lebih baik untuk keterbacaan */
+  display: flex; /* Membuat elemen anak menjadi fleksibel */
+  justify-content: space-between; /* Jarak antar elemen anak */
+  align-items: center; /* Pusatkan elemen anak secara vertikal */
+}
+
+.drop-down-detail p svg {
+  margin-right: 10px; /* Jarak antara ikon dan teks */
+}
+
+.drop-down-detail p span {
+  flex-grow: 1; /* Isi ruang yang tersedia */
+  border-bottom: 1px dashed #ddd; /* Garis bawah putus-putus */
+  margin: 0 10px; /* Jarak di antara elemen */
+}
+
+.toggle-details {
+  background: none; 
+  border: none; /* Tidak ada batas */
+  cursor: pointer; /* Mengubah kursor menjadi pointer */
+  font-size: 24px; /* Ukuran font untuk ikon */
+  color: #007bff; /* Warna ikon */
+  margin-top: 10px; /* Jarak di atas tombol */
+  transition: transform 0.3s ease; /* Transisi halus untuk efek hover */
+}
+
+/* paket.css */
+.wrap-drop-down-detail {
+  display: none;
+  transition: max-height 0.3s ease-out;
+  overflow: hidden;
+  max-height: 0;
+}
+
+.wrap-drop-down-detail.open {
+  display: block;
+  max-height: 500px; /* or any appropriate value */
+}
+
+.slide-up-enter {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 

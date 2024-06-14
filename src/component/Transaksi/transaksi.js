@@ -3,6 +3,22 @@ import './Transaksi.css';
 import Footer from "../Footer/Footer";
 
 const Transaksi = () => {
+  const initialEmployeeData = [
+    {
+      nama: '',
+      nomorTelepon: '',
+      email: '',
+      jabatan: '',
+    },
+    {
+      nama: '',
+      nomorTelepon: '',
+      email: '',
+      jabatan: '',
+    },
+    // Tambahkan lebih banyak objek jika diperlukan
+  ];
+
   const [orderData, setOrderData] = useState({
     nama: '',
     nomorTelepon: '',
@@ -10,12 +26,7 @@ const Transaksi = () => {
     alamat: '',
   });
 
-  const [employeeData, setEmployeeData] = useState([{
-    nama: '',
-    nomorTelepon: '',
-    email: '',
-    jabatan: '',
-  }]);
+  const [employeeData, setEmployeeData] = useState(initialEmployeeData);
 
   const [paymentDetails, setPaymentDetails] = useState({
     metodePembayaran: '',
@@ -66,7 +77,7 @@ const Transaksi = () => {
 
   return (
     <div className="transaction-form">
-      <h2>TRANSACTION</h2>
+      <h2>RESERVASI</h2>
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Orderer data:</legend>
@@ -90,7 +101,7 @@ const Transaksi = () => {
         
         {employeeData.map((employee, index) => (
           <fieldset key={index}>
-            <legend>Tambah karyawan</legend>
+            <legend>Karyawan {index + 1}</legend>
             <label>
               Nama:
               <input type="text" name="nama" value={employee.nama} onChange={(e) => handleEmployeeDataChange(index, e)} />
@@ -111,23 +122,10 @@ const Transaksi = () => {
         ))}
         
         <button type="button" onClick={addEmployeeForm}>Tambah karyawan</button>
-        
-        <fieldset>
-          <legend>Rincian pembayaran</legend>
-          <label>
-            Metode pembayaran:
-            <input type="text" name="metodePembayaran" value={paymentDetails.metodePembayaran} onChange={handlePaymentDetailsChange} />
-          </label>
-          <label>
-            Pesan:
-            <textarea name="pesan" value={paymentDetails.pesan} onChange={handlePaymentDetailsChange}></textarea>
-          </label>
-          <p>Total pembayaran: Rp. {paymentDetails.totalPembayaran}</p>
-          <button type="submit">Buat Pesanan</button>
-        </fieldset>
+        <div className="submit-button-container">
+          <button type="submit">Submit</button>
+        </div>
       </form>
-      
-      < Footer />
     </div>
   );
 };

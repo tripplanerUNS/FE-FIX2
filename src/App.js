@@ -18,22 +18,40 @@ import PaketWisata from "./component/Paket/paket";
 import Cobalogin from "./component/coba/Cobalogin";
 import Adminlogin from "./component/coba/Adminlogin";
 import DetailTransport from "./component/Detail/DetailTransport";
-import Detailpaket from "./component/Detail/detailLengkap";
+import Detailpaket from "./component/Detail/Detailpaket";
 import Transaksi from "./component/Transaksi/transaksi";
-
+import Reservasi from "./component/Reservasi/Reservasi";
 
 function App() {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [budget, setBudget] = useState("");
   const [berangkat, setBerangkat] = useState("");
-  const [jumlah, setJumlah] = useState("")
-  // const [id_hotels, setId_hotels] = useState("");
+  const [jumlah, setJumlah] = useState("");
+  const [jumlahKaryawan, setJumlahKaryawan] = useState(" ");
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home origin={origin} setOrigin={setOrigin} destination={destination} setDestination={setDestination} budget={budget} setBudget={setBudget} berangkat={berangkat} setBerangkat={setBerangkat} jumlah={jumlah} setJumlah={setJumlah}/>} />
+        <Route
+          path="/"
+          element={
+            <Home
+              origin={origin}
+              setOrigin={setOrigin}
+              destination={destination}
+              setDestination={setDestination}
+              budget={budget}
+              setBudget={setBudget}
+              berangkat={berangkat}
+              setBerangkat={setBerangkat}
+              jumlah={jumlah}
+              setJumlah={setJumlah}
+              jumlahKaryawan={jumlahKaryawan}
+              setJumlahKaryawan={setJumlahKaryawan}
+            />
+          }
+        />
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/loginn" element={<Cobalogin />} />
@@ -49,11 +67,26 @@ function App() {
         <Route path="/Agen&Admin/Paket" element={<Paket />} />
         <Route path="/Detail/:id_hotels" element={<Detail />} />
         <Route path="/About" element={<About />} />
-        <Route path="/PaketWisata" element={<PaketWisata dari={origin} destinasi={destination} bugdet={budget} tanggal={berangkat} jumlah={jumlah} setJumlah={setJumlah}/>} />
-        {/* <Route path="/Detailpaket/:id" element={<Detailpaket />} /> */}
-        <Route path="/Detailtransport/:id_transportasi" element={<DetailTransport/>} />
+        <Route
+          path="/PaketWisata"
+          element={
+            <PaketWisata
+              dari={origin}
+              destinasi={destination}
+              bugdet={budget}
+              tanggal={berangkat}
+              jumlah={jumlah}
+              jumlahKaryawan={jumlahKaryawan}
+            />
+          }
+        />
+        <Route path="/Detailpaket/:id" element={<Detailpaket />} />
+        <Route
+          path="/Detailtransport/:id_transportasi"
+          element={<DetailTransport />}
+        />
         <Route path="/Transaksi" element={<Transaksi />} />
-        <Route path="/DetailPaket" element={<Detailpaket />} />
+        <Route path="/Reservasi" element={<Reservasi />} />
       </Routes>
     </Router>
   );
